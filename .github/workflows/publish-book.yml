@@ -1,0 +1,124 @@
+name: publish-book
+
+on:
+
+  workflow_dispatch:
+
+env:
+  NB_KERNEL: python
+  NMA_REPO: instructor-neuroai-course-content
+  NMA_MAIN_BRANCH: main
+  PREREQ_INTRO: NeuroAI
+  
+  ORG: neuromatch
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  build-books-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Get commit message
+        run: |
+          readonly local msg=$(git log -1 --pretty=format:"%s")
+          echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      
+      - name: Set up virtual environment
+        run: |
+          python -m venv env
+          source ./env/bin/activate
+        
+      - name: Install CI tools
+        run: |
+          BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
+          wget https://github.com/neuromatch/nmaci/archive/refs/heads/$BRANCH.tar.gz
+          tar -xzf $BRANCH.tar.gz
+          pip install -r nmaci-$BRANCH/requirements.txt
+          mv nmaci-$BRANCH/scripts/ ci/
+          rm -r nmaci-$BRANCH
+          rm -r $BRANCH.tar.gz
+          echo ci/ >> .gitignore
+
+      - name: Copy tutorials from NeuroAI_Course repo
+        run: |
+          BRANCH=`python -c 'import os, re; m = re.search(r"climate-course-content:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
+          wget https://github.com/neuromatch/NeuroAI_Course/archive/refs/heads/$BRANCH.tar.gz
+          tar -xzf $BRANCH.tar.gz
+          mv NeuroAI_Course-$BRANCH/tutorials tutorials/
+          mv NeuroAI_Course-$BRANCH/projects projects/
+          mv NeuroAI_Course-$BRANCH/requirements.txt .
+          rm -r NeuroAI_Course-$BRANCH
+          rm -r $BRANCH.tar.gz
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install jupyter-book==0.14.0 ghp-import
+          # pip install jupyter_client==7.3.5  # downgrade jupyter-client to fix hangs
+
+      - name: Install XKCD fonts
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          sudo apt-get update -yq
+          wget http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-humor-sans/fonts-humor-sans_1.0-4_all.deb
+          sudo dpkg -i --force-all fonts-humor-sans_1.0-4_all.deb <<< 'yes'
+          sudo apt install -fy
+          rm -f $HOME/.matplotlib/fontList.cache
+          
+      - name: Install backend libs
+        if: "!contains(env.COMMIT_MESSAGE, 'skip ci')"
+        run: |
+          # required for macrocircuits project
+          sudo apt-get install -y libglew-dev
+          sudo apt-get install -y libglfw3
+          sudo apt install -y ffmpeg
+          echo "MUJOCO_GL=egl" >> $GITHUB_ENV
+
+      - name: Install Graphviz
+        uses: tlylt/install-graphviz@v1
+      
+      - name: Cache Jupyter Build Artifacts
+        uses: actions/cache@v2
+        with:
+          path: |
+            ./book/_build/html/
+            ./.jupyter_cache
+          key: ${{ runner.os }}-jupyter-${{ hashFiles('**/*.ipynb') }}
+          restore-keys: |
+            ${{ runner.os }}-jupyter-
+
+      - name: Build instructor book
+        run: |
+          python ci/generate_book.py instructor
+          jupyter-book toc migrate /home/runner/work/instructor-neuroai-course-content/instructor-neuroai-course-content/book/_toc.yml -o /home/runner/work/instructor-neuroai-course-content/instructor-neuroai-course-content/book/_toc.yml
+          ln -s ../tutorials book/tutorials
+          ln -s ../projects book/projects
+          jupyter-book build book
+          python ci/parse_html_for_errors.py instructor
+
+      # NOTE: we may be able to push striaght from here. ie skip the last flow
+      - name: Commit book
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          ghp-import -n -c "instructor.neuroai.neuromatch.io" -m "Update course book" book/_build/html
+          git checkout -f gh-pages
+      
+      - name: Publish to gh-pages
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          force: true
