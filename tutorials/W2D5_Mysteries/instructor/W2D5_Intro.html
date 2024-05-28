@@ -1,0 +1,1180 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Intro &#8212; NeuroAI (instructor&#39;s version)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"5cee329fba434d3087532fbd2964477d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c6a893999f994eef90cdcc11805aa66d": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_5cee329fba434d3087532fbd2964477d", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Video available at https://youtube.com/watch?v=MTDhzJxVjRo\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.YouTubeVideo at 0x7fbcb03514c0>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://www.youtube.com/embed/MTDhzJxVjRo?fs=1&rel=0\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        ", "image/jpeg": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABALDBoYFhwaGRoeHRwfIi0jIiIiJDovMSkyPzc3NT0yOTI1PlBCNT1LOi82RWFFS1NWW15bMkVlbWVYbFBZW1cBERISGRYZLxsZL1c2NTZXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1pXXVdjV1dXV1dXV1dXV1dXV1dXV1dXV1dXV//AABEIAWgB4AMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABgcDBAUCAf/EAEwQAAIBAwEEBwUFBAcFBgcAAAABAgMEESEFEjGSBhMXQVFT0hQiYXGRIzKBobEHQlLBNDVyc7LR4RU2YsLwFiQzs8PxJUNFgoOEov/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgP/xAAcEQEBAQADAQEBAAAAAAAAAAAAARECEiExYUH/2gAMAwEAAhEDEQA/AK/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPBMOzi98235pegdnF75tvzS9AEPB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\n"}}], "tabbable": null, "tooltip": null}}, "949e9b6a3d994b688a6b00af1f99d9d1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2793455d9e0842a2af6d95051ea4433b": {"model_name": "TabModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "TabModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "TabView", "box_style": "", "children": ["IPY_MODEL_c6a893999f994eef90cdcc11805aa66d"], "layout": "IPY_MODEL_949e9b6a3d994b688a6b00af1f99d9d1", "selected_index": 0, "tabbable": null, "titles": ["Youtube"], "tooltip": null}}, "1677880311d64d67932d5c03593d766d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c63528f353f74a65b43e1333b129f15b": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_1677880311d64d67932d5c03593d766d", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "If you want to download the slides: https://osf.io/download/wm9dp/\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.IFrame at 0x7fbcb03509d0>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://mfr.ca-1.osf.io/render?url=https://osf.io/wm9dp/?direct%26mode=render%26action=download%26mode=render\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        "}}], "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/W2D5_Mysteries/instructor/W2D5_Intro';</script>
+    <link rel="shortcut icon" href="../../../_static/ai-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Tutorial 1: Consciousness" href="W2D5_Tutorial1.html" />
+    <link rel="prev" title="Mysteries" href="../chapter_title.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/daily_schedules.html">General schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/shared_calendars.html">Shared calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/timezone_widget.html">Timezone widget</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../TechnicalHelp/tech_intro.html">Technical Help</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">Using jupyterbook</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">Using Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">Using Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../TechnicalHelp/Discord.html">Using discord</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../TechnicalHelp/Links_Policy.html">Quick links and policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D1_Generalization/chapter_title.html">Generalization (W1D1)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Tutorial1.html">Tutorial 1: Generalization in AI</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Tutorial2.html">Tutorial 2: Generalization in Neuroscience</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Tutorial3.html">Tutorial 3: Generalization in Cognitive Science</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D2_ComparingTasks/chapter_title.html">Comparing Tasks (W1D2)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial1.html">Tutorial 1: Task definition, application, relations and impacts on generalization</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial2.html">Tutorial 2: Contrastive learning for object recognition</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial3.html">Tutorial 3: Reinforcement learning across temporal scales</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">Comparing Artificial And Biological Networks (W1D3)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial1.html">Tutorial 1: Generalization and representational geometry</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial2.html">Tutorial 2: Computation as transformation of representational geometries</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial3.html">Tutorial 3: Representational geometry &amp; noise</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial4.html">Tutorial 4: Statistical inference on representational geometries</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Architectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D5_Microcircuits/chapter_title.html">Microcircuits (W1D5)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial1.html">Tutorial 1: Sparsity and Sparse Coding</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial2.html">Tutorial 2: Normalization</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial3.html">Tutorial 3: Attention</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D1_Macrocircuits/chapter_title.html">Macrocircuits (W2D1)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Tutorial1.html">Tutorial 1: Depth vs Width</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">Neuro Symbolic Methods (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial1.html">Tutorial 1: Basic operations of vector symbolic algebra</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial2.html">Tutorial 2: Learning with structures</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial3.html">Tutorial 3: Representations in continuous space</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D3_Microlearning/chapter_title.html">Microlearning (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Tutorial1.html">Tutorial 1: Microlearning</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D4_Macrolearning/chapter_title.html">Macrolearning (W2D4)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial1.html">Tutorial 1: The problem of changing data distributions</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial2.html">Tutorial 2: Continual learning</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial3.html">Tutorial 3: Meta-learning</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial4.html">Tutorial 4: Biological meta reinforcement learning</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial5.html">Tutorial 5: Replay</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mysteries</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter_title.html">Mysteries (W2D5)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W2D5_Tutorial1.html">Tutorial 1: Consciousness</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W2D5_Tutorial2.html">Tutorial 2: Ethics</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W2D5_Outro.html">Outro</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Booklet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/docs/project_guidance.html">Daily guide for projects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../projects/docs/datasets_overview.html">Project materials</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Macrocircuits.html">Macrocircuits</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Microlearning.html">Microlearning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/ComparingNetworks.html">Comparing Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Professional Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/impact_talks.html">Impact Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/mentorship_program.html">Professional developemnt</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_features.html">Career Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_panels.html">Career Panels</a></li>
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
+    </div>
+    <div class="header-article__right">
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+  </ul>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/neuromatch/instructor-neuroai-course-content" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">repository</span>
+</a>
+</a>
+      
+      <li><a href="https://github.com/neuromatch/instructor-neuroai-course-content/issues/new?title=Issue%20on%20page%20%2Ftutorials/W2D5_Mysteries/instructor/W2D5_Intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">open issue</span>
+</a>
+</a>
+      
+  </ul>
+</div>
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="../../../_sources/tutorials/W2D5_Mysteries/instructor/W2D5_Intro.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</a>
+      
+      <li>
+<button onclick="printPdf(this)"
+  class="btn btn-sm dropdown-item"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</a>
+      
+  </ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video">
+   Video
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slides">
+   Slides
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
+  <p><a href="https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D5_Mysteries/student/W2D5_Intro.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D5_Mysteries/student/W2D5_Intro.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="intro">
+<h1>Intro<a class="headerlink" href="#intro" title="Permalink to this heading">#</a></h1>
+<section id="video">
+<h2>Video<a class="headerlink" href="#video" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2793455d9e0842a2af6d95051ea4433b"}</script></div>
+</div>
+</section>
+<section id="slides">
+<h2>Slides<a class="headerlink" href="#slides" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c63528f353f74a65b43e1333b129f15b"}</script></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tutorials/W2D5_Mysteries/instructor"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="../chapter_title.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Mysteries</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="W2D5_Tutorial1.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Tutorial 1: Consciousness</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video">
+   Video
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slides">
+   Slides
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Neuromatch
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1562 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
+<title>Tutorial 2: Continual learning — NeuroAI (instructor's version)</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" rel="stylesheet" type="text/css">
+<link href="../../../_static/togglebutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/copybutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/sphinx-thebe.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" rel="stylesheet" type="text/css">
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94" rel="preload"/>
+<link as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94" rel="preload"/>
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+<script src="../../../_static/jquery.js"></script>
+<script src="../../../_static/underscore.js"></script>
+<script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+<script src="../../../_static/doctools.js"></script>
+<script src="../../../_static/clipboard.min.js"></script>
+<script src="../../../_static/copybutton.js"></script>
+<script src="../../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../../_static/togglebutton.js"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../../_static/design-tabs.js"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+<script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="application/vnd.jupyter.widget-state+json">{"state": {"bb8cbd16354a4a8b86c66b6fe33ae4c8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bfd2c96cac674eceb2a8b82021f6fbf9": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_bb8cbd16354a4a8b86c66b6fe33ae4c8", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "If you want to download the slides: https://osf.io/download/8hgj5/\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.IFrame at 0x7f278c688910>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://mfr.ca-1.osf.io/render?url=https://osf.io/8hgj5/?direct%26mode=render%26action=download%26mode=render\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        "}}], "tabbable": null, "tooltip": null}}, "2d52b237803d4c999340b9812959b2e1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a5937ccc0c234ad9931ced0702c840c2": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_2d52b237803d4c999340b9812959b2e1", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Video available at https://youtube.com/watch?v=M55Q-MdOFZE\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.YouTubeVideo at 0x7f274ba3fcd0>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://www.youtube.com/embed/M55Q-MdOFZE?fs=1&rel=0\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        ", "image/jpeg": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABALDBoYFhwaGQ4eHRwfIi0lIyIiIDstMSkyQDg2OzU6ODc/RVVCOjhLOTowRmFGUFNWW1xbPkJlbWRYbVBZW1cBERISGBYZLxsbL106Nz1dXVddV1hXXldXXVdjV1dXX1pXV1dXWFdXV1dXV1dXV11XV1ddV11dV11XV11dV1dXV//AABEIAWgB4AMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAwUBBAYCB//EAEsQAAEDAQMIBggEAwUHBAMAAAEAAgMRBBIhBQYTFDFBUVIWImGRkqEyU3FygbLR4RUjNbE0QsEzVGJz8CRDRHSCk6IHVcLiRbPx/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QALBEBAAICAgADBgYDAAAAAAAAAAERAhIDIQQFMRMyM0FxgSIjJDRRYRRCkf/aAAwDAQACEQMRAD8A+foiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCapJyeYQQoptUk5PMJqknJ5hBCim1STk8wmqScnmEEKKbVJOTzCzqknq/MILJERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQF6bI4BwDqB2B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s8MNMZ6aeszf3B3jb9U1mX/293jb9VtrKrk09al/9vd42/VQW63zxxOczJzi4DAVBr8Aa9ys0QaeTbVLKy9LYjC7gXA1/qPitxYWUBFhZQEREBFhZQEWEQZRYRAWVhEBZRaliyhHM6VrCb0Tyx4I2Ef0QVee/wCnSe9H84XzdfSM9/06T3o/nC+boC+kZkfp0XvSfO5fN19IzI/Tovek+dyC/REQEREBERBhZRYQFlYRARFlBhZREBERAREQEREBERAREQeNG2tbgrWtab6Ur7aYLw2yxgkiBgJNSQ0Ynie1TIgj0DMPym4Cg6o2Y4eZ71BbMnxzNANW0p6OFdtK7jt+G5baIIBYotGyPQNLIwAxpFQ2mApVZfZY3VvQMNSCatBqRsPtUyINaGwRMLiIW1eXFxIqTU1IJ4dimiiaxoayMNaNgaKAfBe1hBlERAREQEREBERBhZREGFlYWUBERBhZRYQFlEQYWURBhEWUBRsha1znBtC7b2r2soKDPf8ATpPej+cL5uvpGe/6dJ70fzhfN0BfSMyP06L3pPncvm67DNpxFjZRx2u3/wCIokzTt0XO3zznvS+ec96tJs6JFzt88570vnnPelGzokXO3zznvS+ec96UbOiWFz188570vnnPelGzokXO3zznvS+ec96UbOhWVzt88570vnnPelGzokXO3zznvS+ec96UbOiRc7fPOe9L55z3pRs6JFzt88570vnnPelGzokXO3zznvS+ec96UbOiRc7fPOe9L55z3pRs6JFzt88570vnnPelGzoUXPXzznvS+ec96UbOiRc7fPOe9L55z3pRs6JYXPXzznvS+ec96UbOiRc7fPOe9L55z3pRs6JFzt88570vnnPelGzokXO3zznvS+ec96UbOiRc7fPOe9L55z3pRs6JFzt88570vnnPelGzokXO3zznvS+ec96UbOhWVzt88570vnnPelGzokXO3zznvS+ec96UbOiRc7fPOe9L55z3pRs6JYXPXzznvS+ec96UbOiRc7fPOe9L55z3pRs6FFz188570vnnPelGzokXO3zznvS+ec96UbPee/6dJ70fzhfN12GcribG+rjtbv8A8QXHqLE2Lr82/wCEZ7XfMVyC6/Nv+EZ7XfMVYJWiIirAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIte0WnRkDRk1GFPaBSgqd/BBp5yfwj/a35guQXWZekv2EupS9cNPiFyaktwK/yRlqGCBsb794E7G12klUCKK6vpJZ+Enh+6dJLPwk8P3XKIraU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7p0ls/CTw/dcoiWU6vpLZ+Enh+6dJbPwk8P3XKIllOr6S2fhJ4funSWz8JPD91yiJZTq+ktn4SeH7ry/OCyu9KNx9rAf9blyyJZS+yrliGWzmKNrgerQXaDAhUKIooirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEFmirNbk5/IJrcnP5BBZoqzW5OfyCa3Jz+QQWaKs1uTn8gmtyc/kEEKIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIP/2Q==\n"}}], "tabbable": null, "tooltip": null}}, "5b199a749e1142f69268eac481c3735b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d584d0de84b544eab746da3c6f9bfe68": {"model_name": "TabModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "TabModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "TabView", "box_style": "", "children": ["IPY_MODEL_a5937ccc0c234ad9931ced0702c840c2"], "layout": "IPY_MODEL_5b199a749e1142f69268eac481c3735b", "selected_index": 0, "tabbable": null, "titles": ["Youtube"], "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/W2D4_Macrolearning/instructor/W2D4_Tutorial2';</script>
+<link href="../../../_static/ai-logo.png" rel="shortcut icon">
+<link href="../../../genindex.html" rel="index" title="Index">
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="W2D4_Tutorial3.html" rel="next" title="Tutorial 3: Meta-learning"/>
+<link href="W2D4_Tutorial1.html" rel="prev" title="Tutorial 1: The problem of changing data distributions"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></link></link></link></link></link></head>
+<body data-default-mode="" data-offset="180" data-spy="scroll" data-target="#bd-toc-nav">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<input class="sidebar-toggle" id="__primary" name="__primary" type="checkbox"/>
+<label class="overlay overlay-primary" for="__primary"></label>
+<input class="sidebar-toggle" id="__secondary" name="__secondary" type="checkbox"/>
+<label class="overlay overlay-secondary" for="__secondary"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</div>
+</div>
+<nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+<label class="sidebar-toggle primary-toggle" for="__primary">
+<span class="fa-solid fa-bars"></span>
+</label>
+<div id="navbar-start">
+<a class="navbar-brand logo" href="../../intro.html">
+<img alt="Logo image" class="logo__image only-light" src="../../../_static/ai-logo.png"/>
+<img alt="Logo image" class="logo__image only-dark" src="../../../_static/ai-logo.png"/>
+</a>
+</div>
+<div class="col-lg-9 navbar-header-items">
+<div class="mr-auto" id="navbar-center">
+<div class="navbar-center-item">
+<nav class="navbar-nav">
+<p aria-label="Site Navigation" aria-level="1" class="sidebar-header-items__title" role="heading">
+        Site Navigation
+    </p>
+<ul class="navbar-nav" id="navbar-main-elements">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+</li>
+<div class="nav-item dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
+                    More
+                </button>
+<div class="dropdown-menu">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+</li>
+<li class="nav-item current active">
+<a class="nav-link nav-internal" href="../chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+</li>
+</div>
+</div>
+</ul>
+</nav>
+</div>
+</div>
+<div id="navbar-end">
+<div class="navbar-end-item navbar-persistent--container">
+<button aria-label="Search" class="btn btn-sm navbar-btn search-button search-button__button" data-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+</div>
+<div class="navbar-end-item">
+<button aria-label="light/dark" class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" data-toggle="tooltip" title="light/dark">
+<span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+<span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+<span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+</div>
+<div class="navbar-end-item">
+<ul aria-label="Icon Links" class="navbar-nav" id="navbar-icon-links">
+</ul>
+</div>
+</div>
+</div>
+<div class="navbar-persistent--mobile">
+<button aria-label="Search" class="btn btn-sm navbar-btn search-button search-button__button" data-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+</div>
+<label class="sidebar-toggle secondary-toggle" for="__secondary">
+<span class="fa-solid fa-outdent"></span>
+</label>
+</div>
+</nav>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+<div class="sidebar-header-items__center">
+<div class="navbar-center-item">
+<nav class="navbar-nav">
+<p aria-label="Site Navigation" aria-level="1" class="sidebar-header-items__title" role="heading">
+        Site Navigation
+    </p>
+<ul class="navbar-nav" id="navbar-main-elements">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D1_Generalization/chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+</li>
+<div class="nav-item dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
+                    More
+                </button>
+<div class="dropdown-menu">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+</li>
+<li class="nav-item current active">
+<a class="nav-link nav-internal" href="../chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+</li>
+</div>
+</div>
+</ul>
+</nav>
+</div>
+</div>
+<div class="sidebar-header-items__end">
+<div class="navbar-end-item">
+<button aria-label="light/dark" class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" data-toggle="tooltip" title="light/dark">
+<span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+<span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+<span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+</div>
+<div class="navbar-end-item">
+<ul aria-label="Icon Links" class="navbar-nav" id="navbar-icon-links">
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-start-items sidebar-primary__section">
+<div class="sidebar-start-items__item">
+<a class="navbar-brand logo" href="../../intro.html">
+<img alt="Logo image" class="logo__image only-light" src="../../../_static/ai-logo.png"/>
+<img alt="Logo image" class="logo__image only-dark" src="../../../_static/ai-logo.png"/>
+</a>
+</div>
+<div class="sidebar-start-items__item">
+<form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</div>
+<div class="sidebar-start-items__item"><nav aria-label="Main" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/daily_schedules.html">General schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/shared_calendars.html">Shared calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/timezone_widget.html">Timezone widget</a></li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../TechnicalHelp/tech_intro.html">Technical Help</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">Using jupyterbook</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">Using Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">Using Kaggle</a></li>
+</ul>
+</input></li>
+<li class="toctree-l2"><a class="reference internal" href="../../TechnicalHelp/Discord.html">Using discord</a></li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../TechnicalHelp/Links_Policy.html">Quick links and policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D1_Generalization/chapter_title.html">Generalization (W1D1)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Tutorial1.html">Tutorial 1: Generalization in AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Tutorial2.html">Tutorial 2: Generalization in Neuroscience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D1_Generalization/instructor/W1D1_Tutorial3.html">Tutorial 3: Generalization in Cognitive Science</a></li>
+</ul>
+</input></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D2_ComparingTasks/chapter_title.html">Comparing Tasks (W1D2)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial1.html">Tutorial 1: Task definition, application, relations and impacts on generalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial2.html">Tutorial 2: Contrastive learning for object recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial3.html">Tutorial 3: Reinforcement learning across temporal scales</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">Comparing Artificial And Biological Networks (W1D3)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial1.html">Tutorial 1: Generalization and representational geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial2.html">Tutorial 2: Computation as transformation of representational geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial3.html">Tutorial 3: Representational geometry &amp; noise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial4.html">Tutorial 4: Statistical inference on representational geometries</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Architectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D5_Microcircuits/chapter_title.html">Microcircuits (W1D5)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial1.html">Tutorial 1: Sparsity and Sparse Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial2.html">Tutorial 2: Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial3.html">Tutorial 3: Attention</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D1_Macrocircuits/chapter_title.html">Macrocircuits (W2D1)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Tutorial1.html">Tutorial 1: Depth vs Width</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">Neuro Symbolic Methods (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial1.html">Tutorial 1: Basic operations of vector symbolic algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial2.html">Tutorial 2: Learning with structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial3.html">Tutorial 3: Representations in continuous space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D3_Microlearning/chapter_title.html">Microlearning (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Tutorial1.html">Tutorial 1: Microlearning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter_title.html">Macrolearning (W2D4)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="W2D4_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W2D4_Tutorial1.html">Tutorial 1: The problem of changing data distributions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tutorial 2: Continual learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W2D4_Tutorial3.html">Tutorial 3: Meta-learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W2D4_Tutorial4.html">Tutorial 4: Biological meta reinforcement learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W2D4_Tutorial5.html">Tutorial 5: Replay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mysteries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D5_Mysteries/chapter_title.html">Mysteries (W2D5)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Tutorial1.html">Tutorial 1: Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Tutorial2.html">Tutorial 2: Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Outro.html">Outro</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Booklet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/docs/project_guidance.html">Daily guide for projects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../projects/docs/datasets_overview.html">Project materials</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Macrocircuits.html">Macrocircuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Microlearning.html">Microlearning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/ComparingNetworks.html">Comparing Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Professional Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/impact_talks.html">Impact Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/mentorship_program.html">Professional developemnt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_features.html">Career Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_panels.html">Career Panels</a></li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class="sidebar-end-items sidebar-primary__section">
+<div class="sidebar-end-items__item">
+</div>
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article">
+<div class="col py-1 d-flex header-article-main">
+<div class="header-article__left">
+<label class="sidebar-toggle primary-toggle btn btn-sm" data-placement="right" data-toggle="tooltip" for="__primary" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</label>
+</div>
+<div class="header-article__right">
+<div class="dropdown dropdown-launch-buttons">
+<button aria-expanded="false" aria-label="Launch interactive content" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fas fa-rocket"></i>
+</button>
+<ul class="dropdown-menu">
+</ul>
+</div>
+<button class="btn btn-sm" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<div class="dropdown dropdown-repository-buttons">
+<button aria-expanded="false" aria-label="Source repositories" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fab fa-github"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" href="https://github.com/neuromatch/instructor-neuroai-course-content" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+<span class="btn__text-container">repository</span>
+</a>
+
+<li><a class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" href="https://github.com/neuromatch/instructor-neuroai-course-content/issues/new?title=Issue%20on%20page%20%2Ftutorials/W2D4_Macrolearning/instructor/W2D4_Tutorial2.html&amp;body=Your%20issue%20content%20here." target="_blank" title="Open an issue">
+<span class="btn__icon-container">
+<i class="fas fa-lightbulb"></i>
+</span>
+<span class="btn__text-container">open issue</span>
+</a>
+
+</li></li></ul>
+</div>
+<div class="dropdown dropdown-download-buttons">
+<button aria-expanded="false" aria-label="Download this page" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fas fa-download"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" href="../../../_sources/tutorials/W2D4_Macrolearning/instructor/W2D4_Tutorial2.ipynb" target="_blank" title="Download source file">
+<span class="btn__icon-container">
+<i class="fas fa-file"></i>
+</span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+
+<li>
+<button class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" onclick="printPdf(this)" title="Print to PDF">
+<span class="btn__icon-container">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span class="btn__text-container">.pdf</span>
+</button>
+
+</li></li></ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" data-placement="left" data-toggle="tooltip" for="__secondary" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</label>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Tutorial 2: Continual learning</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 2: Continual learning
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial Objectives
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#install-and-import-feedback-gadget">
+     Install and import feedback gadget
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#imports">
+     Imports
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#plotting-functions">
+     Plotting functions
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-random-seed">
+     Set random seed
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-continual-learning">
+     Video 1: Continual learning
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#submit-your-feedback">
+     Submit your feedback
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-catastrophic-forgetting">
+   Section 1: Catastrophic forgetting
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-1-fitting-new-data">
+     Coding Exercise 1: Fitting new data
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id1">
+       Submit your feedback
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-joint-training">
+   Section 2: Joint training
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2a-sequential-joint-training">
+     Coding Exercise 2a: Sequential joint training
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2b-interspersed-training">
+     Coding Exercise 2b: Interspersed training
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2-discussion">
+       Coding Exercise 2 Discussion
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<article class="bd-article" role="main">
+<p><a href="https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W2D4_Macrolearning/student/W2D4_Tutorial2.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W2D4_Macrolearning/student/W2D4_Tutorial2.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial-2-continual-learning">
+<h1>Tutorial 2: Continual learning<a class="headerlink" href="#tutorial-2-continual-learning" title="Permalink to this heading">#</a></h1>
+<p><strong>Week 2, Day 4: Macro-Learning</strong></p>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Hlib Solodzhuk, Ximeng Mao, Grace Lindsay</p>
+<p><strong>Content reviewers:</strong> Aakash Agrawal, Alish Dipani, Hossein Rezaei, Yousef Ghanbari, Mostafa Abdollahi, Hlib Solodzhuk, Ximeng Mao, Grace Lindsay</p>
+<p><strong>Production editors:</strong> Konstantine Tsafatinos, Ella Batty, Spiros Chavlis, Samuele Bolotta, Hlib Solodzhuk</p>
+</section>
+<hr class="docutils"/>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial-objectives">
+<h1>Tutorial Objectives<a class="headerlink" href="#tutorial-objectives" title="Permalink to this heading">#</a></h1>
+<p><em>Estimated timing of tutorial: 25 minutes</em></p>
+<p>In this tutorial, you will observe how simply further training on new data/tasks causes forgetting of past task. You will also explore how different learning schedules impact performance.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "bfd2c96cac674eceb2a8b82021f6fbf9"}</script></div>
+</div>
+</section>
+<hr class="docutils"/>
+<section class="tex2jax_ignore mathjax_ignore" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h1>
+<section id="install-and-import-feedback-gadget">
+<h2>Install and import feedback gadget<a class="headerlink" href="#install-and-import-feedback-gadget" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install and import feedback gadget</span>
+
+<span class="c1"># !pip3 install vibecheck datatops --quiet</span>
+
+<span class="c1"># from vibecheck import DatatopsContentReviewContainer</span>
+<span class="c1"># def content_review(notebook_section: str):</span>
+<span class="c1">#     return DatatopsContentReviewContainer(</span>
+<span class="c1">#         "",  # No text prompt - leave this as is</span>
+<span class="c1">#         notebook_section,</span>
+<span class="c1">#         {</span>
+<span class="c1">#             "url": "https://pmyvdlilci.execute-api.us-east-1.amazonaws.com/klab",</span>
+<span class="c1">#             "name": "sciencematch_sm", # change the name of the course : neuromatch_dl, climatematch_ct, etc</span>
+<span class="c1">#             "user_key": "y1x3mpx5",</span>
+<span class="c1">#         },</span>
+<span class="c1">#     ).render()</span>
+
+<span class="c1"># feedback_prefix = "W2D4_T2"</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Imports</span>
+
+<span class="c1"># working with data</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># plotting</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># interactive display</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="c1"># modeling</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">'matplotlib.font_manager'</span><span class="p">)</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = 'retina' # perfrom high definition rendering for images and plots
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/course-content/main/nma.mplstyle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="plotting-functions">
+<h2>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Plotting functions</span>
+
+<span class="k">def</span> <span class="nf">plot_summer_autumn_predictions</span><span class="p">(</span><span class="n">summer_predictions</span><span class="p">,</span> <span class="n">autumn_predictions</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Plots the true data (summer and autumn prices) along with the predicted summer and autumn prices using a scatter plot.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        - summer_predictions (numpy.ndarray): Array containing the predicted prices for the summer season.</span>
+<span class="sd">        - autumn_predictions (numpy.ndarray): Array containing the predicted prices for the autumn season.</span>
+<span class="sd">    """</span>
+
+    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">summer_days</span><span class="p">,</span> <span class="n">autumn_days</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">summer_prices</span><span class="p">,</span> <span class="n">autumn_prices</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"True Data"</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">autumn_days_test</span><span class="p">,</span> <span class="n">autumn_predictions</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"Autumn Predictions"</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">summer_days_test</span><span class="p">,</span> <span class="n">summer_predictions</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"Summer Predictions"</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Day'</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Price'</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">plot_performance</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Plots the R-squared values for the summer and autumn seasons during the training process.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        - num_epochs (int): The number of training epochs.</span>
+<span class="sd">        - summer_r_squared (list): List containing the R-squared values for the summer season at each epoch.</span>
+<span class="sd">        - autumn_r_squared (list): List containing the R-squared values for the autumn season at each epoch.</span>
+<span class="sd">    """</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Summmer final R-squared value is: </span><span class="si">{</span><span class="n">summer_r_squared</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.02f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Autumn final R-squared value is: </span><span class="si">{</span><span class="n">autumn_r_squared</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.02f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">),</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"Summer Fit"</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">),</span> <span class="n">autumn_r_squared</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"Autumn Fit"</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Epoch'</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'R-squared value'</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="set-random-seed">
+<h2>Set random seed<a class="headerlink" href="#set-random-seed" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Set random seed</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="video-1-continual-learning">
+<h2>Video 1: Continual learning<a class="headerlink" href="#video-1-continual-learning" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d584d0de84b544eab746da3c6f9bfe68"}</script></div>
+</div>
+</section>
+<section id="submit-your-feedback">
+<h2>Submit your feedback<a class="headerlink" href="#submit-your-feedback" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="c1"># content_review(f"{feedback_prefix}_continual_learning")</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<hr class="docutils"/>
+<section class="tex2jax_ignore mathjax_ignore" id="section-1-catastrophic-forgetting">
+<h1>Section 1: Catastrophic forgetting<a class="headerlink" href="#section-1-catastrophic-forgetting" title="Permalink to this heading">#</a></h1>
+<p>In this section we are going to discuss the concept of continual learning and argue that training on new data doesn’t provide any guarantees that the model will remember the relationship it was trained on earlier.</p>
+<section id="coding-exercise-1-fitting-new-data">
+<h2>Coding Exercise 1: Fitting new data<a class="headerlink" href="#coding-exercise-1-fitting-new-data" title="Permalink to this heading">#</a></h2>
+<p>Let’s assume now that we would like our model to predict not only the summer prices but also the autumn ones. We have already trained the MLP to predict summer months nicely and observed that it performs poorly on the autumn period, let us try to make the model learn the new infromation about the prices and see whether it is able to remember both. (First we will need to train the model on summer days again for this tutorial).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define variables</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">.005</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">#define days (observe that those are not 1, ..., 365 but proxy ones to make model function neat)</span>
+<span class="n">days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">26</span><span class="p">,</span> <span class="mi">26</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">days</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">days</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span>
+
+<span class="c1">#take only summer data for intro-training</span>
+<span class="n">summer_days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">days</span><span class="p">[</span><span class="mi">151</span><span class="p">:</span><span class="mi">243</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">summer_prices</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="mi">151</span><span class="p">:</span><span class="mi">243</span><span class="p">]</span>
+
+<span class="c1">#take autumn data for further training</span>
+<span class="n">autumn_days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">days</span><span class="p">[</span><span class="mi">243</span><span class="p">:</span><span class="mi">334</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">autumn_prices</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="mi">243</span><span class="p">:</span><span class="mi">334</span><span class="p">]</span>
+
+<span class="c1">#divide summer data into train and test sets</span>
+<span class="n">summer_days_train</span><span class="p">,</span> <span class="n">summer_days_test</span><span class="p">,</span> <span class="n">summer_prices_train</span><span class="p">,</span> <span class="n">summer_prices_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">summer_days</span><span class="p">,</span> <span class="n">summer_prices</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+
+<span class="c1">#divide autumn data into train and test sets</span>
+<span class="n">autumn_days_train</span><span class="p">,</span> <span class="n">autumn_days_test</span><span class="p">,</span> <span class="n">autumn_prices_train</span><span class="p">,</span> <span class="n">autumn_prices_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">autumn_days</span><span class="p">,</span> <span class="n">autumn_prices</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#apply normalization for days (we take parameters for whole summer-autumn period)</span>
+<span class="n">days_mean</span><span class="p">,</span> <span class="n">days_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">days</span><span class="p">[</span><span class="mi">151</span><span class="p">:</span><span class="mi">334</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">days</span><span class="p">[</span><span class="mi">151</span><span class="p">:</span><span class="mi">334</span><span class="p">])</span>
+
+<span class="n">summer_days_train_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">summer_days_train</span> <span class="o">-</span> <span class="n">days_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">days_std</span>
+<span class="n">summer_days_test_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">summer_days_test</span> <span class="o">-</span> <span class="n">days_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">days_std</span>
+
+<span class="c1">#notice that normalization is taken from summer parameters as obviously model is going to forget old data if we reassign it (by making normalization the same)</span>
+<span class="n">autumn_days_train_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">autumn_days_train</span> <span class="o">-</span> <span class="n">days_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">days_std</span>
+<span class="n">autumn_days_test_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">autumn_days_test</span> <span class="o">-</span> <span class="n">days_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">days_std</span>
+
+<span class="c1">#define MLP</span>
+<span class="n">base_model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s2">"lbfgs"</span><span class="p">)</span> <span class="c1"># LBFGS is better to use when there is small amount of data</span>
+
+<span class="c1">#train MLP</span>
+<span class="n">base_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">summer_days_train_norm</span><span class="p">,</span> <span class="n">summer_prices_train</span><span class="p">)</span>
+
+<span class="c1">#evaluate MLP on test data</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R-squared value is: </span><span class="si">{</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span><span class="w"> </span><span class="n">summer_prices_test</span><span class="p">)</span><span class="si">:</span><span class="s2">.02f</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R-squared value is: 0.67.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s incrementally fit the autumn data to the trained model and follow the R-squared values of summer and autumn data test sets on each of the iterations. In the following code snippet you are requested to complete further training with the <code class="docutils literal notranslate"><span class="pre">partial_fit</span></code> function which allows us to train the existing model on new data. As we iterate through the epochs, we can append new R-squared values for each epoch.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">summer_r_squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">)]</span>
+<span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">)]</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1">###################################################################</span>
+    <span class="c1">## Fill out the following then remove</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: complete partial fit and calculate r-squared values for both summer and autumn data"</span><span class="p">)</span>
+    <span class="c1">###################################################################</span>
+
+    <span class="c1">#fit new data for one epoch</span>
+    <span class="n">base_model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+    <span class="c1">#calculate r-squared values on test sets</span>
+    <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>
+    <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">base_model</span>
+<span class="n">plot_performance</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to_remove solution</span>
+
+<span class="n">summer_r_squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">)]</span>
+<span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">)]</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1">#fit new data for one epoch</span>
+    <span class="n">base_model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="p">,</span> <span class="n">autumn_prices_train</span><span class="p">)</span>
+
+    <span class="c1">#calculate r-squared values on test sets</span>
+    <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">))</span>
+    <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">base_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">))</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">base_model</span>
+<span class="n">plot_performance</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summmer final R-squared value is: -126.54
+Autumn final R-squared value is: 1.00
+</pre></div>
+</div>
+<img alt="../../../_images/09ef0d76ecf241c8774f24064cbc860d4127dc09a4a7a8e3bbc960a0cc10ba37.png" src="../../../_images/09ef0d76ecf241c8774f24064cbc860d4127dc09a4a7a8e3bbc960a0cc10ba37.png">
+</img></div>
+</div>
+<p>Notice how disruptive the change is - even one iteration is enough to change the performance drastically. Let us explore visually the performance of this model on both, summer and autumn, datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#predict for test sets</span>
+<span class="n">summer_prices_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">)</span>
+<span class="n">autumn_prices_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">)</span>
+
+<span class="n">plot_summer_autumn_predictions</span><span class="p">(</span><span class="n">summer_prices_predictions</span><span class="p">,</span> <span class="n">autumn_prices_predictions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/5e554670d380e2d25468a313f884654db820a579cb4e43b431ebffeb37cdbf2e.png" src="../../../_images/5e554670d380e2d25468a313f884654db820a579cb4e43b431ebffeb37cdbf2e.png">
+</img></div>
+</div>
+<p>The model has learned to perform perfectly on autumn data, while it totally messes up predictions on summer days. Indeed, the model forgot the relation for the old data and lost its predictive power while training on the new dataset. In the next section of the tutorial, we are going to follow the journey - what if instead training sequentially, we make the model to learn it together?</p>
+<section id="id1">
+<h3>Submit your feedback<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="c1"># content_review(f"{feedback_prefix}_fitting_new_data")</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils"/>
+<section class="tex2jax_ignore mathjax_ignore" id="section-2-joint-training">
+<h1>Section 2: Joint training<a class="headerlink" href="#section-2-joint-training" title="Permalink to this heading">#</a></h1>
+<p>Estimated timing to here from start of tutorial: 10 minutes</p>
+<p>In this section we are going to explore whether the joint training on both datasets simultaneously, specified in different formats, improves the predictive performance, thus allowing the model to perform well on summer and autumn.</p>
+<section id="coding-exercise-2a-sequential-joint-training">
+<h2>Coding Exercise 2a: Sequential joint training<a class="headerlink" href="#coding-exercise-2a-sequential-joint-training" title="Permalink to this heading">#</a></h2>
+<p>In this coding exercise, let us take a look at the following setup: we will sample <span class="math notranslate nohighlight">\(K\)</span> distinct random training examples from summer data and <span class="math notranslate nohighlight">\(K\)</span> random examples from autumn, training the model in total on <span class="math notranslate nohighlight">\(2K\)</span> examples.</p>
+<p>In sequential joint training, epochs of each data type are alternated. So, for example, the first epoch will be the <span class="math notranslate nohighlight">\(K\)</span> examples from summer data and then the second will be the <span class="math notranslate nohighlight">\(K\)</span> examples from autumn data, then the summer data again, then autumn again and so on.</p>
+<p>In the coding exercise please complete partial fits for the corresponding data to implement sequential joint training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequential_training</span><span class="p">(</span><span class="n">K</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Perform sequential training for a multi-layer perceptron (MLP) regression model.</span>
+<span class="sd">    The function trains the model separately on the summer and autumn data in alternating epochs.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        - K (int): The number of training examples to sample from each season (summer and autumn) in each epoch.</span>
+<span class="sd">        - num_epochs (int): The number of training epochs.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - model (MLPRegressor): The trained MLP regression model.</span>
+<span class="sd">        - summer_r_squared (list): A list containing the R-squared values for the summer season at each epoch.</span>
+<span class="sd">        - autumn_r_squared (list): A list containing the R-squared values for the autumn season at each epoch.</span>
+<span class="sd">    """</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s2">"lbfgs"</span><span class="p">)</span>
+    <span class="n">summer_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="c1">###################################################################</span>
+        <span class="c1">## Fill out the following then remove</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: sample indices for summer and autumn data and sequentially train on summer and then on autumn data"</span><span class="p">)</span>
+        <span class="c1">###################################################################</span>
+
+        <span class="c1">#sample random training examples from summer and autumn</span>
+        <span class="n">sampled_summer_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">summer_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">sampled_autumn_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+        <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">))</span>
+        <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">))</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+        <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">))</span>
+        <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to_remove solution</span>
+
+<span class="k">def</span> <span class="nf">sequential_training</span><span class="p">(</span><span class="n">K</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Perform sequential training for a multi-layer perceptron (MLP) regression model.</span>
+<span class="sd">    The function trains the model separately on the summer and autumn data in alternating epochs.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        - K (int): The number of training examples to sample from each season (summer and autumn) in each epoch.</span>
+<span class="sd">        - num_epochs (int): The number of training epochs.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - model (MLPRegressor): The trained MLP regression model.</span>
+<span class="sd">        - summer_r_squared (list): A list containing the R-squared values for the summer season at each epoch.</span>
+<span class="sd">        - autumn_r_squared (list): A list containing the R-squared values for the autumn season at each epoch.</span>
+<span class="sd">    """</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s2">"lbfgs"</span><span class="p">)</span>
+    <span class="n">summer_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+
+        <span class="c1">#sample random training examples from summer and autumn</span>
+        <span class="n">sampled_summer_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">summer_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">sampled_autumn_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="n">summer_days_train_norm</span><span class="p">[</span><span class="n">sampled_summer_indices</span><span class="p">],</span> <span class="n">summer_prices_train</span><span class="p">[</span><span class="n">sampled_summer_indices</span><span class="p">])</span>
+
+        <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">))</span>
+        <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">))</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="p">[</span><span class="n">sampled_autumn_indices</span><span class="p">],</span> <span class="n">autumn_prices_train</span><span class="p">[</span><span class="n">sampled_autumn_indices</span><span class="p">])</span>
+
+        <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">))</span>
+        <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">sequential_training_model</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="n">sequential_training</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
+
+<span class="n">plot_performance</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summmer final R-squared value is: 0.70
+Autumn final R-squared value is: 0.99
+</pre></div>
+</div>
+<img alt="../../../_images/f77df200da34696abfb0baeb706c6bc56301de73859223df28866ee32f4e1aed.png" src="../../../_images/f77df200da34696abfb0baeb706c6bc56301de73859223df28866ee32f4e1aed.png"/>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#predict for test sets</span>
+<span class="n">summer_prices_predictions</span> <span class="o">=</span> <span class="n">sequential_training_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">)</span>
+<span class="n">autumn_prices_predictions</span> <span class="o">=</span> <span class="n">sequential_training_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">)</span>
+
+<span class="n">plot_summer_autumn_predictions</span><span class="p">(</span><span class="n">summer_prices_predictions</span><span class="p">,</span> <span class="n">autumn_prices_predictions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/98541db6cde4504b6a09e0eeb62a8f0b1684d715c346a8e4c88e6000eb27e9bd.png" src="../../../_images/98541db6cde4504b6a09e0eeb62a8f0b1684d715c346a8e4c88e6000eb27e9bd.png"/>
+</div>
+</div>
+<p>As we can see, this performs better than fully learning summer data then learning autumn data.</p>
+</section>
+<section id="coding-exercise-2b-interspersed-training">
+<h2>Coding Exercise 2b: Interspersed training<a class="headerlink" href="#coding-exercise-2b-interspersed-training" title="Permalink to this heading">#</a></h2>
+<p>Now we will try fully interspersed trainig. As opposed to sequential joint training, here we will generate epochs that contain both summer and autumn data, exposing the model to both sets equally and at the same time.</p>
+<p>We would like you to complete the exercise by filling in the code snippets which correspond to creating the labels for the interspersed epochs and training the model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">interspersed_training</span><span class="p">(</span><span class="n">K</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Perform interspersed training for a multi-layer perceptron (MLP) regression model.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        - K (int): The number of training examples to sample from each season (summer and autumn) in each epoch.</span>
+<span class="sd">        - num_epochs (int): The number of training epochs.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - model (MLPRegressor): The trained MLP regression model.</span>
+<span class="sd">        - summer_r_squared (list): A list containing the R-squared values for the summer season at each epoch.</span>
+<span class="sd">        - autumn_r_squared (list): A list containing the R-squared values for the autumn season at each epoch.</span>
+<span class="sd">    """</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s2">"lbfgs"</span><span class="p">)</span>
+    <span class="n">summer_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+
+        <span class="c1">#sample random training examples from summer and autumn</span>
+        <span class="n">sampled_summer_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">summer_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">sampled_autumn_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+
+        <span class="n">mixed_days_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="p">[</span><span class="n">sampled_autumn_indices</span><span class="p">],</span> <span class="n">summer_days_train_norm</span><span class="p">[</span><span class="n">sampled_summer_indices</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1">###################################################################</span>
+        <span class="c1">## Fill out the following then remove</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: make price labels for mixed epochs and train"</span><span class="p">)</span>
+        <span class="c1">###################################################################</span>
+        <span class="n">mixed_prices_train</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
+
+        <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">))</span>
+        <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to_remove solution</span>
+
+<span class="k">def</span> <span class="nf">interspersed_training</span><span class="p">(</span><span class="n">K</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Perform interspersed training for a multi-layer perceptron (MLP) regression model.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        - K (int): The number of training examples to sample from each season (summer and autumn) in each epoch.</span>
+<span class="sd">        - num_epochs (int): The number of training epochs.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - model (MLPRegressor): The trained MLP regression model.</span>
+<span class="sd">        - summer_r_squared (list): A list containing the R-squared values for the summer season at each epoch.</span>
+<span class="sd">        - autumn_r_squared (list): A list containing the R-squared values for the autumn season at each epoch.</span>
+<span class="sd">    """</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s2">"lbfgs"</span><span class="p">)</span>
+    <span class="n">summer_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+
+        <span class="c1">#sample random training examples from summer and autumn</span>
+        <span class="n">sampled_summer_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">summer_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">sampled_autumn_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">K</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">mixed_days_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">autumn_days_train_norm</span><span class="p">[</span><span class="n">sampled_autumn_indices</span><span class="p">],</span> <span class="n">summer_days_train_norm</span><span class="p">[</span><span class="n">sampled_summer_indices</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">mixed_prices_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">autumn_prices_train</span><span class="p">[</span><span class="n">sampled_autumn_indices</span><span class="p">],</span> <span class="n">summer_prices_train</span><span class="p">[</span><span class="n">sampled_summer_indices</span><span class="p">])</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="n">mixed_days_train</span><span class="p">,</span><span class="n">mixed_prices_train</span><span class="p">)</span>
+
+        <span class="n">summer_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">,</span> <span class="n">summer_prices_test</span><span class="p">))</span>
+        <span class="n">autumn_r_squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">,</span> <span class="n">autumn_prices_test</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">interspersed_training_model</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span> <span class="o">=</span> <span class="n">interspersed_training</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
+
+<span class="n">plot_performance</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">summer_r_squared</span><span class="p">,</span> <span class="n">autumn_r_squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summmer final R-squared value is: 0.86
+Autumn final R-squared value is: 1.00
+</pre></div>
+</div>
+<img alt="../../../_images/282d45646378ba3a487d3bd8e77a9ccd28736c5cac3c17c21c560c08ab45e376.png" src="../../../_images/282d45646378ba3a487d3bd8e77a9ccd28736c5cac3c17c21c560c08ab45e376.png"/>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#predict for test sets</span>
+<span class="n">summer_prices_predictions</span> <span class="o">=</span> <span class="n">interspersed_training_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">summer_days_test_norm</span><span class="p">)</span>
+<span class="n">autumn_prices_predictions</span> <span class="o">=</span> <span class="n">interspersed_training_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">autumn_days_test_norm</span><span class="p">)</span>
+
+<span class="n">plot_summer_autumn_predictions</span><span class="p">(</span><span class="n">summer_prices_predictions</span><span class="p">,</span> <span class="n">autumn_prices_predictions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/8d4199be69739b683e5d0d1169174bfd38f60f1e178ed28c47fb8123a9b041a5.png" src="../../../_images/8d4199be69739b683e5d0d1169174bfd38f60f1e178ed28c47fb8123a9b041a5.png"/>
+</div>
+</div>
+<section id="coding-exercise-2-discussion">
+<h3>Coding Exercise 2 Discussion<a class="headerlink" href="#coding-exercise-2-discussion" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Observe that the number of epochs is doubled in sequential training mode vs interspersed mode. Why?</p></li>
+<li><p>Which of the training schedulers worked better for this particular example? Why do you think it happened that way?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#to_remove explanation</span>
+
+<span class="sd">"""</span>
+<span class="sd">Discussion: Why are the epochs doubled in sequential training?</span>
+
+<span class="sd">Each epoch only contains summer or autumn data and is only of size $K$, whereas interspersed training epochs contain $2K$ data points. In order to expose both models to the same amount of data, the number of epochs must be doubled.</span>
+
+<span class="sd">Which mode worked better and why?</span>
+
+<span class="sd">Interspersed training works better. In sequential training, the model is constantly shifting from learning one type of relation to another (which is basically what we have tried during the first section of the tutorial); still, here sequential joint training helps because we change data source for each epoch which makes the model still remember both data distributions. With interspersed this ability to remember both distributions is even stronger as both are represented in each epoch.</span>
+<span class="sd">"""</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils"/>
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<p><em>Estimated timing of tutorial: 25 minutes</em></p>
+<p>Have a summary of what we’ve learned:</p>
+<ol class="arabic simple">
+<li><p>Simply continuing to train on a new data distribution causes catastrophic forgetting</p></li>
+<li><p>Joint training, wherein different datasets are interspersed to varying degrees, helps fight catastrophic forgetting.</p></li>
+</ol>
+<p>You can explore more advanced methods of continual learning in the following resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1802.07569">Continual Lifelong Learning with Neural Networks: A Review</a></p></li>
+<li><p><a class="reference external" href="https://www.continualai.org/">ContinualAI</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/2302.00487">A Comprehensive Survey of Continual Learning: Theory, Method and Application</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41467-020-17866-2">Brain-inspired replay for continual learning with artificial neural networks</a></p></li>
+</ul>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tutorials/W2D4_Macrolearning/instructor"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="bd-footer-article">
+<!-- Previous / next buttons -->
+<div class="prev-next-area">
+<a class="left-prev" href="W2D4_Tutorial1.html" id="prev-link" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Tutorial 1: The problem of changing data distributions</p>
+</div>
+</a>
+<a class="right-next" href="W2D4_Tutorial3.html" id="next-link" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">Tutorial 3: Meta-learning</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc">
+<div class="toc-item">
+<div class="tocsection onthispage">
+<i class="fa-solid fa-list"></i> On this page
+</div>
+<nav class="page-toc" id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 2: Continual learning
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial Objectives
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#install-and-import-feedback-gadget">
+     Install and import feedback gadget
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#imports">
+     Imports
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#plotting-functions">
+     Plotting functions
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-random-seed">
+     Set random seed
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-continual-learning">
+     Video 1: Continual learning
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#submit-your-feedback">
+     Submit your feedback
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-catastrophic-forgetting">
+   Section 1: Catastrophic forgetting
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-1-fitting-new-data">
+     Coding Exercise 1: Fitting new data
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id1">
+       Submit your feedback
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-joint-training">
+   Section 2: Joint training
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2a-sequential-joint-training">
+     Coding Exercise 2a: Sequential joint training
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2b-interspersed-training">
+     Coding Exercise 2b: Interspersed training
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2-discussion">
+       Coding Exercise 2 Discussion
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Neuromatch
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<p class="last-updated">
+Last updated on None.<br/>
+</p>
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"/></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"/></a>
+The contents of this repository are shared under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+</body>
+</html>

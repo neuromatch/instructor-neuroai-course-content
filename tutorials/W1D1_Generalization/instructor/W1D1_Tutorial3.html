@@ -1,0 +1,1682 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
+<title>Tutorial 3: Generalization in Cognitive Science — NeuroAI (instructor's version)</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" rel="stylesheet" type="text/css">
+<link href="../../../_static/togglebutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/copybutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/sphinx-thebe.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" rel="stylesheet" type="text/css">
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94" rel="preload"/>
+<link as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94" rel="preload"/>
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+<script src="../../../_static/jquery.js"></script>
+<script src="../../../_static/underscore.js"></script>
+<script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+<script src="../../../_static/doctools.js"></script>
+<script src="../../../_static/clipboard.min.js"></script>
+<script src="../../../_static/copybutton.js"></script>
+<script src="../../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../../_static/togglebutton.js"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../../_static/design-tabs.js"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+<script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="application/vnd.jupyter.widget-state+json">{"state": {"90a75351394f49fcba47fb9f1c17d532": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "46dbe6b29b2449e18194e9b91f23b774": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_90a75351394f49fcba47fb9f1c17d532", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "If you want to download the slides: https://osf.io/download/x4pa5/\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.IFrame at 0x7f36507a2910>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://mfr.ca-1.osf.io/render?url=https://osf.io/x4pa5/?direct%26mode=render%26action=download%26mode=render\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        "}}], "tabbable": null, "tooltip": null}}, "e13e2bf124324d7daea249a8ba8b36ff": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2d9717d3a0684288a84b82155ef3cf45": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_e13e2bf124324d7daea249a8ba8b36ff", "msg_id": "", "outputs": [], "tabbable": null, "tooltip": null}}, "d702175a7b274a5ca43f7dc5a5a9cd63": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "675905d17a7c40c095178b4cbca2f9d9": {"model_name": "ButtonStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "button_color": null, "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "e869b9562b2448ada038f0e718644f72": {"model_name": "ButtonModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ButtonView", "button_style": "", "description": "Start the interactive", "disabled": false, "icon": "", "layout": "IPY_MODEL_d702175a7b274a5ca43f7dc5a5a9cd63", "style": "IPY_MODEL_675905d17a7c40c095178b4cbca2f9d9", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/W1D1_Generalization/instructor/W1D1_Tutorial3';</script>
+<link href="../../../_static/ai-logo.png" rel="shortcut icon">
+<link href="../../../genindex.html" rel="index" title="Index">
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../../W1D2_ComparingTasks/chapter_title.html" rel="next" title="Comparing Tasks"/>
+<link href="W1D1_Tutorial2.html" rel="prev" title="Tutorial 2: Generalization in Neuroscience"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></link></link></link></link></link></head>
+<body data-default-mode="" data-offset="180" data-spy="scroll" data-target="#bd-toc-nav">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<input class="sidebar-toggle" id="__primary" name="__primary" type="checkbox"/>
+<label class="overlay overlay-primary" for="__primary"></label>
+<input class="sidebar-toggle" id="__secondary" name="__secondary" type="checkbox"/>
+<label class="overlay overlay-secondary" for="__secondary"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</div>
+</div>
+<nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+<label class="sidebar-toggle primary-toggle" for="__primary">
+<span class="fa-solid fa-bars"></span>
+</label>
+<div id="navbar-start">
+<a class="navbar-brand logo" href="../../intro.html">
+<img alt="Logo image" class="logo__image only-light" src="../../../_static/ai-logo.png"/>
+<img alt="Logo image" class="logo__image only-dark" src="../../../_static/ai-logo.png"/>
+</a>
+</div>
+<div class="col-lg-9 navbar-header-items">
+<div class="mr-auto" id="navbar-center">
+<div class="navbar-center-item">
+<nav class="navbar-nav">
+<p aria-label="Site Navigation" aria-level="1" class="sidebar-header-items__title" role="heading">
+        Site Navigation
+    </p>
+<ul class="navbar-nav" id="navbar-main-elements">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+</li>
+<li class="nav-item current active">
+<a class="nav-link nav-internal" href="../chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+</li>
+<div class="nav-item dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
+                    More
+                </button>
+<div class="dropdown-menu">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+</li>
+</div>
+</div>
+</ul>
+</nav>
+</div>
+</div>
+<div id="navbar-end">
+<div class="navbar-end-item navbar-persistent--container">
+<button aria-label="Search" class="btn btn-sm navbar-btn search-button search-button__button" data-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+</div>
+<div class="navbar-end-item">
+<button aria-label="light/dark" class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" data-toggle="tooltip" title="light/dark">
+<span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+<span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+<span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+</div>
+<div class="navbar-end-item">
+<ul aria-label="Icon Links" class="navbar-nav" id="navbar-icon-links">
+</ul>
+</div>
+</div>
+</div>
+<div class="navbar-persistent--mobile">
+<button aria-label="Search" class="btn btn-sm navbar-btn search-button search-button__button" data-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+</div>
+<label class="sidebar-toggle secondary-toggle" for="__secondary">
+<span class="fa-solid fa-outdent"></span>
+</label>
+</div>
+</nav>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+<div class="sidebar-header-items__center">
+<div class="navbar-center-item">
+<nav class="navbar-nav">
+<p aria-label="Site Navigation" aria-level="1" class="sidebar-header-items__title" role="heading">
+        Site Navigation
+    </p>
+<ul class="navbar-nav" id="navbar-main-elements">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+</li>
+<li class="nav-item current active">
+<a class="nav-link nav-internal" href="../chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+</li>
+<div class="nav-item dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
+                    More
+                </button>
+<div class="dropdown-menu">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+</li>
+</div>
+</div>
+</ul>
+</nav>
+</div>
+</div>
+<div class="sidebar-header-items__end">
+<div class="navbar-end-item">
+<button aria-label="light/dark" class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" data-toggle="tooltip" title="light/dark">
+<span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+<span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+<span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+</div>
+<div class="navbar-end-item">
+<ul aria-label="Icon Links" class="navbar-nav" id="navbar-icon-links">
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-start-items sidebar-primary__section">
+<div class="sidebar-start-items__item">
+<a class="navbar-brand logo" href="../../intro.html">
+<img alt="Logo image" class="logo__image only-light" src="../../../_static/ai-logo.png"/>
+<img alt="Logo image" class="logo__image only-dark" src="../../../_static/ai-logo.png"/>
+</a>
+</div>
+<div class="sidebar-start-items__item">
+<form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</div>
+<div class="sidebar-start-items__item"><nav aria-label="Main" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/daily_schedules.html">General schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/shared_calendars.html">Shared calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/timezone_widget.html">Timezone widget</a></li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../TechnicalHelp/tech_intro.html">Technical Help</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">Using jupyterbook</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">Using Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">Using Kaggle</a></li>
+</ul>
+</input></li>
+<li class="toctree-l2"><a class="reference internal" href="../../TechnicalHelp/Discord.html">Using discord</a></li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../TechnicalHelp/Links_Policy.html">Quick links and policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter_title.html">Generalization (W1D1)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="W1D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W1D1_Tutorial1.html">Tutorial 1: Generalization in AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W1D1_Tutorial2.html">Tutorial 2: Generalization in Neuroscience</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tutorial 3: Generalization in Cognitive Science</a></li>
+</ul>
+</input></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D2_ComparingTasks/chapter_title.html">Comparing Tasks (W1D2)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial1.html">Tutorial 1: Task definition, application, relations and impacts on generalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial2.html">Tutorial 2: Contrastive learning for object recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial3.html">Tutorial 3: Reinforcement learning across temporal scales</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">Comparing Artificial And Biological Networks (W1D3)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial1.html">Tutorial 1: Generalization and representational geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial2.html">Tutorial 2: Computation as transformation of representational geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial3.html">Tutorial 3: Representational geometry &amp; noise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial4.html">Tutorial 4: Statistical inference on representational geometries</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Architectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D5_Microcircuits/chapter_title.html">Microcircuits (W1D5)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial1.html">Tutorial 1: Sparsity and Sparse Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial2.html">Tutorial 2: Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial3.html">Tutorial 3: Attention</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D1_Macrocircuits/chapter_title.html">Macrocircuits (W2D1)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Tutorial1.html">Tutorial 1: Depth vs Width</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">Neuro Symbolic Methods (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial1.html">Tutorial 1: Basic operations of vector symbolic algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial2.html">Tutorial 2: Learning with structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial3.html">Tutorial 3: Representations in continuous space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D3_Microlearning/chapter_title.html">Microlearning (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Tutorial1.html">Tutorial 1: Microlearning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D4_Macrolearning/chapter_title.html">Macrolearning (W2D4)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial1.html">Tutorial 1: The problem of changing data distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial2.html">Tutorial 2: Continual learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial3.html">Tutorial 3: Meta-learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial4.html">Tutorial 4: Biological meta reinforcement learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial5.html">Tutorial 5: Replay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mysteries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D5_Mysteries/chapter_title.html">Mysteries (W2D5)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Tutorial1.html">Tutorial 1: Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Tutorial2.html">Tutorial 2: Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Outro.html">Outro</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Booklet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/docs/project_guidance.html">Daily guide for projects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../projects/docs/datasets_overview.html">Project materials</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Macrocircuits.html">Macrocircuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Microlearning.html">Microlearning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/ComparingNetworks.html">Comparing Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Professional Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/impact_talks.html">Impact Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/mentorship_program.html">Professional developemnt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_features.html">Career Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_panels.html">Career Panels</a></li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class="sidebar-end-items sidebar-primary__section">
+<div class="sidebar-end-items__item">
+</div>
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article">
+<div class="col py-1 d-flex header-article-main">
+<div class="header-article__left">
+<label class="sidebar-toggle primary-toggle btn btn-sm" data-placement="right" data-toggle="tooltip" for="__primary" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</label>
+</div>
+<div class="header-article__right">
+<div class="dropdown dropdown-launch-buttons">
+<button aria-expanded="false" aria-label="Launch interactive content" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fas fa-rocket"></i>
+</button>
+<ul class="dropdown-menu">
+</ul>
+</div>
+<button class="btn btn-sm" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<div class="dropdown dropdown-repository-buttons">
+<button aria-expanded="false" aria-label="Source repositories" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fab fa-github"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" href="https://github.com/neuromatch/instructor-neuroai-course-content" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+<span class="btn__text-container">repository</span>
+</a>
+
+<li><a class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" href="https://github.com/neuromatch/instructor-neuroai-course-content/issues/new?title=Issue%20on%20page%20%2Ftutorials/W1D1_Generalization/instructor/W1D1_Tutorial3.html&amp;body=Your%20issue%20content%20here." target="_blank" title="Open an issue">
+<span class="btn__icon-container">
+<i class="fas fa-lightbulb"></i>
+</span>
+<span class="btn__text-container">open issue</span>
+</a>
+
+</li></li></ul>
+</div>
+<div class="dropdown dropdown-download-buttons">
+<button aria-expanded="false" aria-label="Download this page" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fas fa-download"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" href="../../../_sources/tutorials/W1D1_Generalization/instructor/W1D1_Tutorial3.ipynb" target="_blank" title="Download source file">
+<span class="btn__icon-container">
+<i class="fas fa-file"></i>
+</span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+
+<li>
+<button class="btn btn-sm dropdown-item" data-placement="left" data-toggle="tooltip" onclick="printPdf(this)" title="Print to PDF">
+<span class="btn__icon-container">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span class="btn__text-container">.pdf</span>
+</button>
+
+</li></li></ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" data-placement="left" data-toggle="tooltip" for="__secondary" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</label>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Tutorial 3: Generalization in Cognitive Science</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 3: Generalization in Cognitive Science
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial Objectives
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#install-and-import-feedback-gadget">
+     Install and import feedback gadget
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id1">
+       Install and import feedback gadget
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#import-dependencies">
+       Import dependencies
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+       Figure settings
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#plotting-functions">
+       Plotting functions
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id2">
+     Figure Settings
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id3">
+       Figure settings
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#data-retrieval">
+     Data retrieval
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#data-retrieval-for-zip-files">
+       Data retrieval for zip files
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#data-retrieval-for-torch-models">
+       Data retrieval for torch models
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#helper-functions">
+     Helper Functions
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id4">
+       Helper functions
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-how-people-recognize-new-characters">
+   Section 1: How people recognize new characters
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-generalization-in-cognitive-science">
+     Video 1: Generalization in Cognitive Science
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#reflection-activity-1-1">
+     Reflection activity 1.1
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#reflection-activity-1-2">
+     Reflection activity 1.2
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#submit-your-feedback">
+       Submit your feedback
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-a-model-of-one-shot-learning">
+   Section 2: a model of one-shot learning
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-about-here">
+     Video about here
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id5">
+       Submit your feedback
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<article class="bd-article" role="main">
+<p><a href="https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D1_Generalization/student/W1D1_Tutorial3.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D1_Generalization/student/W1D1_Tutorial3.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial-3-generalization-in-cognitive-science">
+<h1>Tutorial 3: Generalization in Cognitive Science<a class="headerlink" href="#tutorial-3-generalization-in-cognitive-science" title="Permalink to this heading">#</a></h1>
+<p><strong>Week 1, Day 1: Generalization</strong></p>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Samuele Bolotta, Patrick Mineault</p>
+<p><strong>Content reviewers:</strong> Samuele Bolotta, Lily Chamakura, RyeongKyung Yoon, Yizhou Chen, Ruiyi Zhang, Aakash Agrawal, Alish Dipani, Hossein Rezaei, Yousef Ghanbari, Mostafa Abdollahi</p>
+<p><strong>Production editors:</strong> Konstantine Tsafatinos, Ella Batty, Spiros Chavlis, Samuele Bolotta, Hlib Solodzhuk</p>
+</section>
+<hr class="docutils"/>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial-objectives">
+<h1>Tutorial Objectives<a class="headerlink" href="#tutorial-objectives" title="Permalink to this heading">#</a></h1>
+<p><em>Estimated timing of tutorial: 30 minutes</em></p>
+<p>This tutorial will introduce you to generalization in the context of cognitive science. We’ll close the loop of our exploration of different views of handwriting with a model that combines aspects of the models we covered in the neuroscience and AI tutorials, including both generative and discriminative components.</p>
+<p>In particular, we’ll be looking at the Omniglot dataset, and how it can be used to infer how humans and machines generalize in a handwritten symbol recognition task. We’ll try our hand at one-shot learning, and we’ll measure our sample complexity. We’ll then discuss how one cognitive model, <a class="reference external" href="https://arxiv.org/abs/2006.14448">Feinman and Lake</a> (2020), attempts to solve the problem of handwritten symbol recognition using a neuro-symbolic method.</p>
+<p>By the end of this tutorial, participants will be able to:</p>
+<ol class="arabic simple">
+<li><p>Explore the goals of cognitive science. Understand the aims of cognitive science such as unraveling the complexities of human cognition.</p></li>
+<li><p>Define one-shot learning and sample complexity. Perform a task that involves one-shot learning.</p></li>
+<li><p>Explore how a neurosymbolic model with strong inductive biases could explain one-shot learning on Omniglot.</p></li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "46dbe6b29b2449e18194e9b91f23b774"}</script></div>
+</div>
+</section>
+<hr class="docutils"/>
+<section class="tex2jax_ignore mathjax_ignore" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h1>
+<section id="install-and-import-feedback-gadget">
+<h2>Install and import feedback gadget<a class="headerlink" href="#install-and-import-feedback-gadget" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Install and import feedback gadget<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install and import feedback gadget</span>
+
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>numpy<span class="w"> </span>Pillow<span class="w"> </span>scipy<span class="w"> </span>ipywidgets<span class="w"> </span>tqdm<span class="w"> </span>--quiet
+
+<span class="kn">from</span> <span class="nn">vibecheck</span> <span class="kn">import</span> <span class="n">DatatopsContentReviewContainer</span>
+<span class="k">def</span> <span class="nf">content_review</span><span class="p">(</span><span class="n">notebook_section</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">DatatopsContentReviewContainer</span><span class="p">(</span>
+        <span class="s2">""</span><span class="p">,</span>  <span class="c1"># No text prompt - leave this as is</span>
+        <span class="n">notebook_section</span><span class="p">,</span>
+        <span class="p">{</span>
+        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pmyvdlilci.execute-api.us-east-1.amazonaws.com/klab"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sciencematch_sm"</span><span class="p">,</span> <span class="c1"># change the name of the course : neuromatch_dl, climatematch_ct, etc</span>
+        <span class="s2">"user_key"</span><span class="p">:</span> <span class="s2">"y1x3mpx5"</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+
+<span class="n">feedback_prefix</span> <span class="o">=</span> <span class="s2">"W1D1_T3"</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="import-dependencies">
+<h3>Import dependencies<a class="headerlink" href="#import-dependencies" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Import dependencies</span>
+<span class="c1"># @markdown</span>
+
+<span class="c1"># Standard libraries</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+
+<span class="c1"># Data handling and visualization</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">skimage</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Deep Learning libraries</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cdist</span>
+
+<span class="c1"># Interactive controls in Jupyter notebooks</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">update_display</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="c1"># Utility for progress bars</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="figure-settings">
+<h3>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+<span class="c1"># @markdown</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">'matplotlib.font_manager'</span><span class="p">)</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = 'retina' # perfrom high definition rendering for images and plots
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/course-content/main/nma.mplstyle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="plotting-functions">
+<h3>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Plotting functions</span>
+<span class="c1"># @markdown</span>
+
+<span class="k">def</span> <span class="nf">display_images</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+    <span class="c1"># Open the probe image and the option images</span>
+    <span class="n">probe_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">probe</span><span class="p">)</span>
+    <span class="n">option_images</span> <span class="o">=</span> <span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span> <span class="k">for</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="n">options</span><span class="p">]</span>
+
+    <span class="c1"># Create a figure with the probe and the 3x3 grid for the options directly below</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># Adjust figure size as needed</span>
+
+    <span class="c1"># Add the probe image to the top of the figure with a red border</span>
+    <span class="n">ax_probe</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># Span the probe across the top 3 columns</span>
+    <span class="n">ax_probe</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">probe_image</span><span class="p">)</span>
+    <span class="n">ax_probe</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+    <span class="n">rect</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">probe_image</span><span class="o">.</span><span class="n">width</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">probe_image</span><span class="o">.</span><span class="n">height</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">'none'</span><span class="p">)</span>
+    <span class="n">ax_probe</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+
+    <span class="c1"># Position the 3x3 grid of option images directly below the probe image</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">option_images</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Calculate row in the 3x3 grid, starting directly below the probe</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># Calculate column in the 3x3 grid</span>
+        <span class="n">ax_option</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">row</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">col</span><span class="p">)</span>  <span class="c1"># Adjust grid position to directly follow the probe</span>
+        <span class="n">ax_option</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">ax_option</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2>Figure Settings<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<section id="id3">
+<h3>Figure settings<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+<span class="c1"># @markdown</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">'matplotlib.font_manager'</span><span class="p">)</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = 'retina' # perform high definition rendering for images and plots
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/course-content/main/nma.mplstyle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="data-retrieval">
+<h2>Data retrieval<a class="headerlink" href="#data-retrieval" title="Permalink to this heading">#</a></h2>
+<section id="data-retrieval-for-zip-files">
+<h3>Data retrieval for zip files<a class="headerlink" href="#data-retrieval-for-zip-files" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Data retrieval for zip files</span>
+<span class="c1"># @markdown</span>
+
+<span class="k">def</span> <span class="nf">handle_file_operations</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">expected_md5</span><span class="p">,</span> <span class="n">extract_to</span><span class="o">=</span><span class="s1">'data'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Handles downloading, verifying, and extracting a file."""</span>
+
+    <span class="c1"># Define helper functions for download, verify, and extract operations</span>
+    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Downloads file from the given URL and saves it locally."""</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+                    <span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Download successful."</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"!!! Failed to download data: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> !!!"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">verify_file_md5</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">expected_md5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Verifies the file's MD5 checksum."""</span>
+        <span class="n">hash_md5</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">):</span>
+                <span class="n">hash_md5</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hash_md5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">expected_md5</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"MD5 checksum verified."</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"!!! Data download appears corrupted !!!"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">extract_zip_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">extract_to</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Extracts the ZIP file to the specified directory."""</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+                <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">extract_to</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File extracted successfully to </span><span class="si">{</span><span class="n">extract_to</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">BadZipFile</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"!!! The ZIP file is corrupted or not a zip file !!!"</span><span class="p">)</span>
+
+    <span class="c1"># Main operation</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">verify_file_md5</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">expected_md5</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verify_file_md5</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">expected_md5</span><span class="p">):</span>
+            <span class="n">extract_zip_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">extract_to</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File '</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">' already exists and is verified. Proceeding to extraction."</span><span class="p">)</span>
+        <span class="n">extract_zip_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">extract_to</span><span class="p">)</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">file_info</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">"fname"</span><span class="p">:</span> <span class="s2">"omniglot-py.zip"</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://osf.io/bazxp/download"</span><span class="p">,</span> <span class="s2">"expected_md5"</span><span class="p">:</span> <span class="s2">"f7a4011f5c25460c6d95ee1428e377ed"</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">file_info</span><span class="p">:</span>
+    <span class="n">handle_file_operations</span><span class="p">(</span><span class="o">**</span><span class="n">file</span><span class="p">)</span>
+
+<span class="c1">#Current directory</span>
+<span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download successful.
+MD5 checksum verified.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File extracted successfully to data
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-retrieval-for-torch-models">
+<h3>Data retrieval for torch models<a class="headerlink" href="#data-retrieval-for-torch-models" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Data retrieval for torch models</span>
+<span class="c1"># @markdown</span>
+
+<span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Download a file from a given URL and save it in the specified directory.</span>
+<span class="sd">    """</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>  <span class="c1"># Ensure the file is saved in base_dir</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>  <span class="c1"># Check for HTTP request errors</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">verify_checksum</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">expected_checksum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Verify the MD5 checksum of a file</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    filename (str): Path to the file</span>
+<span class="sd">    expected_checksum (str): Expected MD5 checksum</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    bool: True if the checksum matches, False otherwise</span>
+<span class="sd">    """</span>
+    <span class="n">md5</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">):</span>
+            <span class="n">md5</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">md5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">expected_checksum</span>
+
+<span class="k">def</span> <span class="nf">load_models</span><span class="p">(</span><span class="n">model_files</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="s1">'cpu'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load multiple models from a specified directory.</span>
+<span class="sd">    """</span>
+    <span class="n">models</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">model_file</span> <span class="ow">in</span> <span class="n">model_files</span><span class="p">:</span>
+        <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">model_file</span><span class="p">)</span>  <span class="c1"># Correctly join paths</span>
+        <span class="n">models</span><span class="p">[</span><span class="n">model_file</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">map_location</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">models</span>
+
+<span class="k">def</span> <span class="nf">verify_models_in_destination</span><span class="p">(</span><span class="n">model_files</span><span class="p">,</span> <span class="n">destination_directory</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Verify the presence of model files in the specified directory.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    model_files (list of str): Filenames of the models to verify.</span>
+<span class="sd">    destination_directory (str): The directory where the models are supposed to be.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    bool: True if all models are found in the directory, False otherwise.</span>
+<span class="sd">    """</span>
+    <span class="n">missing_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">model_file</span> <span class="ow">in</span> <span class="n">model_files</span><span class="p">:</span>
+        <span class="c1"># Construct the full path to where the model should be</span>
+        <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destination_directory</span><span class="p">,</span> <span class="n">model_file</span><span class="p">)</span>
+        <span class="c1"># Check if the model exists at the location</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+            <span class="n">missing_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">missing_files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Missing model files in destination: </span><span class="si">{</span><span class="n">missing_files</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"All models are correctly located in the destination directory."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<span class="c1"># URLs and checksums for the models</span>
+<span class="n">models_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'location_model.pt'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'https://osf.io/zmd7y/download'</span><span class="p">,</span> <span class="s1">'dfd51cf7c3a277777ad941c4fcc23813'</span><span class="p">),</span>
+    <span class="s1">'stroke_model.pt'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'https://osf.io/m6yc7/download'</span><span class="p">,</span> <span class="s1">'511ea7bd12566245d5d11a85d5a0abb0'</span><span class="p">),</span>
+    <span class="s1">'terminate_model.pt'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'https://osf.io/dsmhc/download'</span><span class="p">,</span> <span class="s1">'2f3e26cfcf36ce9f9172c15d8b1079d1'</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">destination_directory</span> <span class="o">=</span> <span class="n">base_dir</span>
+
+<span class="c1"># Define model_files based on the keys of models_info to ensure we have the filenames</span>
+<span class="n">model_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">models_info</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># Iterate over the models to download and verify</span>
+<span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">checksum</span><span class="p">)</span> <span class="ow">in</span> <span class="n">models_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>  <span class="c1"># Downloads directly into base_dir</span>
+    <span class="k">if</span> <span class="n">verify_checksum</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">model_name</span><span class="p">),</span> <span class="n">checksum</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Successfully verified </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Checksum does not match for </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">. Download might be corrupted."</span><span class="p">)</span>
+
+<span class="c1"># Verify the presence of the models in the destination directory</span>
+<span class="k">if</span> <span class="n">verify_models_in_destination</span><span class="p">(</span><span class="n">model_files</span><span class="p">,</span> <span class="n">destination_directory</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Verification successful: All models are in the correct directory."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Verification failed: Some models are missing from the destination directory."</span><span class="p">)</span>
+
+<span class="c1"># Load the models from the destination directory</span>
+<span class="n">models</span> <span class="o">=</span> <span class="n">load_models</span><span class="p">(</span><span class="n">model_files</span><span class="p">,</span> <span class="n">destination_directory</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="s1">'cpu'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully verified location_model.pt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully verified stroke_model.pt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully verified terminate_model.pt
+All models are correctly located in the destination directory.
+Verification successful: All models are in the correct directory.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="helper-functions">
+<h2>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this heading">#</a></h2>
+<section id="id4">
+<h3>Helper functions<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Helper functions</span>
+<span class="c1"># @markdown</span>
+
+<span class="k">def</span> <span class="nf">select_random_images_within_alphabet</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">alphabet_path</span><span class="p">,</span> <span class="n">exclude_character_path</span><span class="p">,</span> <span class="n">num_images</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">chosen_images</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">all_characters</span> <span class="o">=</span> <span class="p">[</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">alphabet_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">alphabet_path</span><span class="p">,</span> <span class="n">char</span><span class="p">))</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">alphabet_path</span><span class="p">,</span> <span class="n">char</span><span class="p">)</span> <span class="o">!=</span> <span class="n">exclude_character_path</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen_images</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_images</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">all_characters</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">character</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">all_characters</span><span class="p">)</span>
+        <span class="n">character_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">alphabet_path</span><span class="p">,</span> <span class="n">character</span><span class="p">)</span>
+        <span class="n">all_images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">character_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.png'</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">all_images</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">image_file</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">all_images</span><span class="p">)</span>
+        <span class="n">image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">character_path</span><span class="p">,</span> <span class="n">image_file</span><span class="p">)</span>
+        <span class="n">chosen_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">chosen_images</span>
+
+<span class="k">def</span> <span class="nf">run_trial_interactive</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">output</span><span class="p">:</span>
+        <span class="n">score_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Score: </span><span class="si">{</span><span class="n">total_score</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">total_trials</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">score_widget</span><span class="p">)</span>
+
+        <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n">lang</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">base_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">lang</span><span class="p">))]</span>
+        <span class="n">selected_language</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">languages</span><span class="p">)</span>
+        <span class="n">language_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">selected_language</span><span class="p">)</span>
+        <span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">language_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">language_path</span><span class="p">,</span> <span class="n">char</span><span class="p">))]</span>
+        <span class="n">selected_character</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+        <span class="n">character_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">language_path</span><span class="p">,</span> <span class="n">selected_character</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">character_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.png'</span><span class="p">)]</span>
+        <span class="n">probe_image_path</span><span class="p">,</span> <span class="n">correct_answer_image_path</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">probe_image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">character_path</span><span class="p">,</span> <span class="n">probe_image_path</span><span class="p">)</span>
+        <span class="n">correct_answer_image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">character_path</span><span class="p">,</span> <span class="n">correct_answer_image_path</span><span class="p">)</span>
+        <span class="n">wrong_answers</span> <span class="o">=</span> <span class="n">select_random_images_within_alphabet</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">language_path</span><span class="p">,</span> <span class="n">character_path</span><span class="p">,</span> <span class="n">num_images</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">wrong_answers</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">options</span><span class="p">)),</span> <span class="n">correct_answer_image_path</span><span class="p">)</span>
+
+        <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">'Reference image'</span><span class="p">))</span>
+
+        <span class="c1"># Display the probe image</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">probe_image_path</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'png'</span><span class="p">))</span>
+
+        <span class="c1"># Create a grid of image widgets</span>
+        <span class="n">image_grid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">GridBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'png'</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">'100px'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">'100px'</span><span class="p">))</span>
+                                      <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">options</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">grid_template_columns</span><span class="o">=</span><span class="s1">'repeat(3, 100px)'</span><span class="p">))</span>
+
+        <span class="c1"># Create a grid of numbered buttons</span>
+        <span class="n">button_grid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">GridBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">))</span>
+                                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">options</span><span class="p">))],</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">grid_template_columns</span><span class="o">=</span><span class="s1">'repeat(3, 100px)'</span><span class="p">))</span>
+
+        <span class="n">global_grid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">GridBox</span><span class="p">([</span><span class="n">image_grid</span><span class="p">,</span> <span class="n">button_grid</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">grid_template_columns</span><span class="o">=</span><span class="s1">'repeat(2, 300px)'</span><span class="p">))</span>
+
+        <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">'Which of these images match the reference? '</span><span class="p">))</span>
+
+        <span class="c1"># Display the image grid</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">global_grid</span><span class="p">)</span>
+
+        <span class="c1"># Attach click event handlers to the buttons</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">button_grid</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">on_button_clicked</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">correct_answer_image_path</span><span class="p">,</span> <span class="n">score_widget</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="section-1-how-people-recognize-new-characters">
+<h1>Section 1: How people recognize new characters<a class="headerlink" href="#section-1-how-people-recognize-new-characters" title="Permalink to this heading">#</a></h1>
+<p>Let’s put ourselves in the mindset of a cognitive scientist studying handwriting. We’re interested in how people learn to recognize new characters. Indeed, humans display low <strong>sample complexity</strong> when learning new visual concepts: they seem to grasp new concepts with very few presentations, generalizing effortlessly. In AI, learning from <span class="math notranslate nohighlight">\(k\)</span> labelled examples is known as <span class="math notranslate nohighlight">\(k\)</span>-shot learning; one-shot and few-shot learning refer to learning from one or a few labelled examples.</p>
+<p>A good dataset to investigate one-shot learning is the Omniglot dataset. Omniglot has sometimes been described as <em>MNIST, transposed</em>. Instead of <strong>thousands</strong> of examples from <strong>10</strong> digit classes, Omniglot consists of <strong>20</strong> instances from <strong>1623</strong> character classes. These character classes are sourced from 50 alphabets, both natural (e.g. Cherokee or Greek) and constructed (e.g. the alien alphabet from the TV show Futurama).</p>
+<p><img alt="Sample characters from the Omniglot dataset" src="https://github.com/brendenlake/omniglot/raw/master/omniglot_grid.jpg"/></p>
+<p>Let’s see if you’re a good one-shot classifier by trying the Omniglot task yourself. Observing human behavior in the lab to infer their strategies is an important way that cognitive scientists make progress in understanding human cognition.</p>
+<section id="video-1-generalization-in-cognitive-science">
+<h2>Video 1: Generalization in Cognitive Science<a class="headerlink" href="#video-1-generalization-in-cognitive-science" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Your task is to conduct a series of trials to explore the Omniglot dataset. Here’s how the experiment goes:</p>
+<ol class="arabic simple">
+<li><p><strong>Click Start</strong></p></li>
+<li><p><strong>Look at the reference character at the top</strong></p></li>
+<li><p><strong>Look at 9 different potential matches at the bottom</strong>. These include one more instance of the reference character class, and 8 distractors from other characters of the same alphabet.</p></li>
+<li><p><strong>Click the button corresponding to the best match</strong>. The selection buttons are on the right of the grid.</p></li>
+<li><p><strong>Repeat for multiple trials</strong>. Get to 10 or 20 to get an estimate of how well you perform.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paths</span>
+<span class="n">base_path</span> <span class="o">=</span> <span class="s2">"data/omniglot-py/images_background"</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_score</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total_trials</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">btn</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">total_score</span><span class="p">,</span> <span class="n">total_trials</span>
+    <span class="n">total_score</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_trials</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">run_trial_interactive</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="n">btn</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s1">'Reset the interactive'</span>
+
+<span class="k">def</span> <span class="nf">on_button_clicked</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">correct_answer_image_path</span><span class="p">,</span> <span class="n">score_widget</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">total_score</span><span class="p">,</span> <span class="n">total_trials</span>
+    <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">description</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">correct_answer_image_path</span><span class="p">:</span>
+        <span class="n">total_score</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">total_trials</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">run_trial_interactive</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">display_start_button</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">btn</span>
+    <span class="n">btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Start the interactive'</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="n">btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+<span class="n">display_start_button</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e869b9562b2448ada038f0e718644f72"}</script><script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2d9717d3a0684288a84b82155ef3cf45"}</script></div>
+</div>
+<p>How well did you do?</p>
+</section>
+<section id="reflection-activity-1-1">
+<h2>Reflection activity 1.1<a class="headerlink" href="#reflection-activity-1-1" title="Permalink to this heading">#</a></h2>
+<p>Sample complexity <span class="math notranslate nohighlight">\(N(\varepsilon, \delta)\)</span> is formally defined as:</p>
+<blockquote>
+<div><p>the number of examples <span class="math notranslate nohighlight">\(N\)</span> that a learner must see in order to perform a task with an error rate smaller than <span class="math notranslate nohighlight">\(\varepsilon\)</span> with probability greater than <span class="math notranslate nohighlight">\(1-\delta\)</span>.</p>
+</div></blockquote>
+<p>Based on this definition, what is your sample complexity on the Omniglot task?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##to_remove explanation</span>
+<span class="sd">"""</span>
+<span class="sd">Loose definition:</span>
+
+<span class="sd">The Omniglot task you just tried has one labelled example per class: the reference</span>
+<span class="sd">image defines the reference class. People tested on the Omniglot task generally</span>
+<span class="sd">display far higher performance than chance (here, 11%). Based on this, we often say</span>
+<span class="sd">(loosely) that people display a sample complexity N=1 on this task.</span>
+
+<span class="sd">Strict definition:</span>
+
+<span class="sd">When I tried this task 20 times, I got 18 correct answers. Based on that, I can</span>
+<span class="sd">estimate a 90% confidence interval (delta = 0.05) for my error rate using binomial</span>
+<span class="sd">statistics as [.02, .23]. Thus, I can state that my sample complexity for this task</span>
+<span class="sd">is N(epsilon=.1, delta=.23) = 1.</span>
+
+<span class="sd">My numbers are on the low end of what has been demonstrated in the literature.</span>
+<span class="sd">Lake et al. (2015) estimated an error rate in humans of 4.5% with 20 distractors.</span>
+<span class="sd">"""</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'\nLoose definition:\n\nThe Omniglot task you just tried has one labelled example per class: the reference\nimage defines the reference class. People tested on the Omniglot task generally\ndisplay far higher performance than chance (here, 11%). Based on this, we often say\n(loosely) that people display a sample complexity N=1 on this task.\n\nStrict definition:\n\nWhen I tried this task 20 times, I got 18 correct answers. Based on that, I can\nestimate a 90% confidence interval (delta = 0.05) for my error rate using binomial\nstatistics as [.02, .23]. Thus, I can state that my sample complexity for this task\nis N(epsilon=.1, delta=.23) = 1.\n\nMy numbers are on the low end of what has been demonstrated in the literature.\nLake et al. (2015) estimated an error rate in humans of 4.5% with 20 distractors.\n'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reflection-activity-1-2">
+<h2>Reflection activity 1.2<a class="headerlink" href="#reflection-activity-1-2" title="Permalink to this heading">#</a></h2>
+<p>How do you think you, as a human, are performing a task like Omniglot?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##to_remove explanation</span>
+<span class="sd">"""</span>
+<span class="sd">Inferring how humans perform cognitive tasks is a central question in cognitive science.</span>
+<span class="sd">Our ability to infer our strategies by introspection is limited, but controlled lab</span>
+<span class="sd">experiments can help us tease apart how we perform tasks.</span>
+
+<span class="sd">Lake et al. (2015) ask:</span>
+
+<span class="sd">&gt; How do people learn new concepts from just one or a few examples? And how do</span>
+<span class="sd">people learn such abstract, rich, and flexible representations? An even greater challenge arises</span>
+<span class="sd">when putting them together: How can learning succeed from such sparse data yet also produce</span>
+<span class="sd">such rich representations?</span>
+
+<span class="sd">In the next section, we'll explore one model that can reach human-level performance</span>
+<span class="sd">through strong inductive biases, involving:</span>
+
+<span class="sd">* bottom-up visual processing</span>
+<span class="sd">* a generative model</span>
+<span class="sd">* a neurosymbolic approach</span>
+
+<span class="sd">"""</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>"\nInferring how humans perform cognitive tasks is a central question in cognitive science.\nOur ability to infer our strategies by introspection is limited, but controlled lab\nexperiments can help us tease apart how we perform tasks.\n\nLake et al. (2015) ask:\n\n&gt; How do people learn new concepts from just one or a few examples? And how do\npeople learn such abstract, rich, and flexible representations? An even greater challenge arises\nwhen putting them together: How can learning succeed from such sparse data yet also produce\nsuch rich representations?\n\nIn the next section, we'll explore one model that can reach human-level performance\nthrough strong inductive biases, involving:\n\n* bottom-up visual processing\n* a generative model\n* a neurosymbolic approach\n\n"
+</pre></div>
+</div>
+</div>
+</div>
+<section id="submit-your-feedback">
+<h3>Submit your feedback<a class="headerlink" href="#submit-your-feedback" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="c1"># content_review(f"{feedback_prefix}_Omniglot_Exercise")</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="section-2-a-model-of-one-shot-learning">
+<h1>Section 2: a model of one-shot learning<a class="headerlink" href="#section-2-a-model-of-one-shot-learning" title="Permalink to this heading">#</a></h1>
+<p>Feinman and Lake (2020) propose a cognitive model to explain how humans perform one-shot recognition tasks like Omniglot. Their model is based on the insight handwriting characters is highly structured: if we could infer how a character was generated, we could figure out the writer’s intent, and perform one-shot recognition of characters.</p>
+<p>When we write down a character on a piece of paper or a screen, we might implicitly perform a sequence of steps:</p>
+<ol class="arabic simple" start="0">
+<li><p>Prepare a global motor plan to write a character based on prior experience</p></li>
+<li><p>Decide where to put down the pen for the first stroke</p></li>
+<li><p>Draw a stroke in an appropriate direction.
+a. Look at the sheet of paper during the writing to adjust the direction of the stroke</p></li>
+<li><p>Find a location for the second strike, and so on…</p></li>
+<li><p>When satisfied, stop drawing strokes</p></li>
+</ol>
+<p>Feinman and Lake (2020) propose to embed these assumptions into a generative model for how a single character is generated from strokes.</p>
+<p><img alt="Model parts" src="tutorials/W1D1_Generalization/instructor/static/model_diagram.png"/></p>
+<p>The result is a highly structured Bayesian generative model containing both discrete components (e.g. strokes) and continuous components (e.g. the location of the next stroke is a continuous variable). It combines symbolic primitives (strokes) as well as standard ANN components. This combination of using symbols and neural networks is known as a <strong>neuro-symbolic</strong> approach.</p>
+<p>This is an example of a model with <strong>strong inductive biases</strong>. Watch the video to learn more about how such a model might explain the perception of characters.</p>
+<section id="video-about-here">
+<h2>Video about here<a class="headerlink" href="#video-about-here" title="Permalink to this heading">#</a></h2>
+<section id="id5">
+<h3>Submit your feedback<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Submit your feedback</span>
+<span class="c1"># content_review(f"{feedback_prefix}_Building_Stroke_Exercise")</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Cognitive science seeks to understand how human cognition works</p></li>
+<li><p>Humans display one-shot learning on Omniglot, a character recognition task. This requires extensive generalization.</p></li>
+<li><p>Sample complexity measures the minimum number of examples needed to reach a specific performance with some probability; a sample complexity of 1 indicates one-shot learning at a specific performance level</p></li>
+<li><p>A generative neurosymbolic model with strong inductive biases exhibits human-level performance on Omniglot</p></li>
+</ul>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tutorials/W1D1_Generalization/instructor"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="bd-footer-article">
+<!-- Previous / next buttons -->
+<div class="prev-next-area">
+<a class="left-prev" href="W1D1_Tutorial2.html" id="prev-link" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Tutorial 2: Generalization in Neuroscience</p>
+</div>
+</a>
+<a class="right-next" href="../../W1D2_ComparingTasks/chapter_title.html" id="next-link" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">Comparing Tasks</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc">
+<div class="toc-item">
+<div class="tocsection onthispage">
+<i class="fa-solid fa-list"></i> On this page
+</div>
+<nav class="page-toc" id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 3: Generalization in Cognitive Science
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial Objectives
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#install-and-import-feedback-gadget">
+     Install and import feedback gadget
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id1">
+       Install and import feedback gadget
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#import-dependencies">
+       Import dependencies
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+       Figure settings
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#plotting-functions">
+       Plotting functions
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id2">
+     Figure Settings
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id3">
+       Figure settings
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#data-retrieval">
+     Data retrieval
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#data-retrieval-for-zip-files">
+       Data retrieval for zip files
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#data-retrieval-for-torch-models">
+       Data retrieval for torch models
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#helper-functions">
+     Helper Functions
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id4">
+       Helper functions
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-how-people-recognize-new-characters">
+   Section 1: How people recognize new characters
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-generalization-in-cognitive-science">
+     Video 1: Generalization in Cognitive Science
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#reflection-activity-1-1">
+     Reflection activity 1.1
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#reflection-activity-1-2">
+     Reflection activity 1.2
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#submit-your-feedback">
+       Submit your feedback
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-a-model-of-one-shot-learning">
+   Section 2: a model of one-shot learning
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-about-here">
+     Video about here
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id5">
+       Submit your feedback
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Neuromatch
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<p class="last-updated">
+Last updated on None.<br/>
+</p>
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"/></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"/></a>
+The contents of this repository are shared under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+</body>
+</html>

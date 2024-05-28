@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Intro &#8212; NeuroAI (instructor&#39;s version)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"81e2ac468d624653b72e6cd294787a6f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0d4b39b6fd8b4b6bb7284ce1aa833632": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_81e2ac468d624653b72e6cd294787a6f", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Video available at https://youtube.com/watch?v=IILjiyBd7zs\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.YouTubeVideo at 0x7f5e30ff0610>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://www.youtube.com/embed/IILjiyBd7zs?fs=1&rel=0\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        ", "image/jpeg": "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\n"}}], "tabbable": null, "tooltip": null}}, "50f475746345404f855373da90946535": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "936202ea702f4ad88400d9187673ad2a": {"model_name": "TabModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "TabModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "TabView", "box_style": "", "children": ["IPY_MODEL_0d4b39b6fd8b4b6bb7284ce1aa833632"], "layout": "IPY_MODEL_50f475746345404f855373da90946535", "selected_index": 0, "tabbable": null, "titles": ["Youtube"], "tooltip": null}}, "e18bca01b12f4fa5a01717d3088e2cbd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6082f75bda094d68a5f1f56f0fecf29d": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_e18bca01b12f4fa5a01717d3088e2cbd", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Video available at https://youtube.com/watch?v=iC3INYdg-dk\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.YouTubeVideo at 0x7f5e30e4a6d0>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://www.youtube.com/embed/iC3INYdg-dk?fs=1&rel=0\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        ", "image/jpeg": "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\n"}}], "tabbable": null, "tooltip": null}}, "99e383afffcb471d887e1113c87a06bc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f5b219b3e3444de2a73ee8a084a63a44": {"model_name": "TabModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "TabModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "TabView", "box_style": "", "children": ["IPY_MODEL_6082f75bda094d68a5f1f56f0fecf29d"], "layout": "IPY_MODEL_99e383afffcb471d887e1113c87a06bc", "selected_index": 0, "tabbable": null, "titles": ["Youtube"], "tooltip": null}}, "24da656d2eef4fd4b92198a32d225c27": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fe06f436cfb64403a5818576cd2ded95": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_24da656d2eef4fd4b92198a32d225c27", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Video available at https://youtube.com/watch?v=zlMXTpXbWoU\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.YouTubeVideo at 0x7f5e400652e0>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://www.youtube.com/embed/zlMXTpXbWoU?fs=1&rel=0\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        ", "image/jpeg": "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\n"}}], "tabbable": null, "tooltip": null}}, "0ad2bfca6d144887842e401ab4ef4a89": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "79a3d4d0e79e4666bb390b040dc226ba": {"model_name": "TabModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "TabModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "TabView", "box_style": "", "children": ["IPY_MODEL_fe06f436cfb64403a5818576cd2ded95"], "layout": "IPY_MODEL_0ad2bfca6d144887842e401ab4ef4a89", "selected_index": 0, "tabbable": null, "titles": ["Youtube"], "tooltip": null}}, "d97d319b6774408d9849466e1397954b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "72eb74c2737e40a689f4402b4e930fc5": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_d97d319b6774408d9849466e1397954b", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "If you want to download the slides: https://osf.io/download/fm4ys/\n"}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<IPython.lib.display.IFrame at 0x7f5e30f8c8e0>", "text/html": "\n        <iframe\n            width=\"730\"\n            height=\"410\"\n            src=\"https://mfr.ca-1.osf.io/render?url=https://osf.io/fm4ys/?direct%26mode=render%26action=download%26mode=render\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        "}}], "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/W1D1_Generalization/instructor/W1D1_Intro';</script>
+    <link rel="shortcut icon" href="../../../_static/ai-logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Tutorial 1: Generalization in AI" href="W1D1_Tutorial1.html" />
+    <link rel="prev" title="Generalization" href="../chapter_title.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
+                        Schedule
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/tech_intro.html">
+                        Technical Help
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../TechnicalHelp/Links_Policy.html">
+                        Quick links and policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../chapter_title.html">
+                        Generalization (W1D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D2_ComparingTasks/chapter_title.html">
+                        Comparing Tasks (W1D2)
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">
+                        Comparing Artificial And Biological Networks (W1D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W1D5_Microcircuits/chapter_title.html">
+                        Microcircuits (W1D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D1_Macrocircuits/chapter_title.html">
+                        Macrocircuits (W2D1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">
+                        Neuro Symbolic Methods (W2D2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D3_Microlearning/chapter_title.html">
+                        Microlearning (W2D3)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D4_Macrolearning/chapter_title.html">
+                        Macrolearning (W2D4)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../W2D5_Mysteries/chapter_title.html">
+                        Mysteries (W2D5)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/project_guidance.html">
+                        Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/docs/datasets_overview.html">
+                        Project materials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/README.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/impact_talks.html">
+                        Impact Talks
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/mentorship_program.html">
+                        Mentorship Program
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_features.html">
+                        Career Features
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../projects/professional_development/career_panels.html">
+                        Career Panels
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../../_static/ai-logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../../_static/ai-logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/daily_schedules.html">General schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/shared_calendars.html">Shared calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Schedule/timezone_widget.html">Timezone widget</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../TechnicalHelp/tech_intro.html">Technical Help</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">Using jupyterbook</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">Using Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">Using Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../TechnicalHelp/Discord.html">Using discord</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../TechnicalHelp/Links_Policy.html">Quick links and policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter_title.html">Generalization (W1D1)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W1D1_Tutorial1.html">Tutorial 1: Generalization in AI</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W1D1_Tutorial2.html">Tutorial 2: Generalization in Neuroscience</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W1D1_Tutorial3.html">Tutorial 3: Generalization in Cognitive Science</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D2_ComparingTasks/chapter_title.html">Comparing Tasks (W1D2)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial1.html">Tutorial 1: Task definition, application, relations and impacts on generalization</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial2.html">Tutorial 2: Contrastive learning for object recognition</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D2_ComparingTasks/instructor/W1D2_Tutorial3.html">Tutorial 3: Reinforcement learning across temporal scales</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/chapter_title.html">Comparing Artificial And Biological Networks (W1D3)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial1.html">Tutorial 1: Generalization and representational geometry</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial2.html">Tutorial 2: Computation as transformation of representational geometries</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial3.html">Tutorial 3: Representational geometry &amp; noise</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D3_ComparingArtificialAndBiologicalNetworks/instructor/W1D3_Tutorial4.html">Tutorial 4: Statistical inference on representational geometries</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Architectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W1D5_Microcircuits/chapter_title.html">Microcircuits (W1D5)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial1.html">Tutorial 1: Sparsity and Sparse Coding</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial2.html">Tutorial 2: Normalization</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W1D5_Microcircuits/instructor/W1D5_Tutorial3.html">Tutorial 3: Attention</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D1_Macrocircuits/chapter_title.html">Macrocircuits (W2D1)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Tutorial1.html">Tutorial 1: Depth vs Width</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/chapter_title.html">Neuro Symbolic Methods (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial1.html">Tutorial 1: Basic operations of vector symbolic algebra</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial2.html">Tutorial 2: Learning with structures</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/instructor/W2D2_Tutorial3.html">Tutorial 3: Representations in continuous space</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D2_NeuroSymbolicMethods/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D3_Microlearning/chapter_title.html">Microlearning (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Tutorial1.html">Tutorial 1: Microlearning</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D4_Macrolearning/chapter_title.html">Macrolearning (W2D4)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial1.html">Tutorial 1: The problem of changing data distributions</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial2.html">Tutorial 2: Continual learning</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial3.html">Tutorial 3: Meta-learning</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial4.html">Tutorial 4: Biological meta reinforcement learning</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/instructor/W2D4_Tutorial5.html">Tutorial 5: Replay</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D4_Macrolearning/further_reading.html">Suggested further readings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mysteries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D5_Mysteries/chapter_title.html">Mysteries (W2D5)</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Tutorial1.html">Tutorial 1: Consciousness</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Tutorial2.html">Tutorial 2: Ethics</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../W2D5_Mysteries/instructor/W2D5_Outro.html">Outro</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Booklet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/docs/project_guidance.html">Daily guide for projects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../projects/docs/datasets_overview.html">Project materials</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Macrocircuits.html">Macrocircuits</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/Microlearning.html">Microlearning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../projects/project-notebooks/ComparingNetworks.html">Comparing Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Professional Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/impact_talks.html">Impact Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/mentorship_program.html">Professional developemnt</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_features.html">Career Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/professional_development/career_panels.html">Career Panels</a></li>
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
+    </div>
+    <div class="header-article__right">
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+  </ul>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/neuromatch/instructor-neuroai-course-content" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">repository</span>
+</a>
+</a>
+      
+      <li><a href="https://github.com/neuromatch/instructor-neuroai-course-content/issues/new?title=Issue%20on%20page%20%2Ftutorials/W1D1_Generalization/instructor/W1D1_Intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">open issue</span>
+</a>
+</a>
+      
+  </ul>
+</div>
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="../../../_sources/tutorials/W1D1_Generalization/instructor/W1D1_Intro.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</a>
+      
+      <li>
+<button onclick="printPdf(this)"
+  class="btn btn-sm dropdown-item"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</a>
+      
+  </ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisite-knowledge">
+   Prerequisite knowledge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-part-1">
+   Video Part 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-part-2">
+   Video Part 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-part-3">
+   Video Part 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slides">
+   Slides
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
+  <p><a href="https://colab.research.google.com/github/neuromatch/NeuroAI_Course/blob/main/tutorials/W1D1_Generalization/student/W1D1_Intro.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/neuromatch/NeuroAI_Course/main/tutorials/W1D1_Generalization/student/W1D1_Intro.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg" /></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="intro">
+<h1>Intro<a class="headerlink" href="#intro" title="Permalink to this heading">#</a></h1>
+<section id="prerequisite-knowledge">
+<h2>Prerequisite knowledge<a class="headerlink" href="#prerequisite-knowledge" title="Permalink to this heading">#</a></h2>
+<p>This is the first day, so we assume you have prerequisites equivalent to having taken the CN and DL classes. This day’s tutorials delve into next-token prediction of a neural network with transformers in PyTorch. We will also talk about attention in this context. You should be familiar from DL W2D5, W3D1. You will work with neural data (actually EMG) in the second tutorial. You should be broadly familiar from the CN class. Please review these precourse materials if necessary!</p>
+</section>
+<section id="video-part-1">
+<h2>Video Part 1<a class="headerlink" href="#video-part-1" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "936202ea702f4ad88400d9187673ad2a"}</script></div>
+</div>
+</section>
+<section id="video-part-2">
+<h2>Video Part 2<a class="headerlink" href="#video-part-2" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f5b219b3e3444de2a73ee8a084a63a44"}</script></div>
+</div>
+</section>
+<section id="video-part-3">
+<h2>Video Part 3<a class="headerlink" href="#video-part-3" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "79a3d4d0e79e4666bb390b040dc226ba"}</script></div>
+</div>
+</section>
+<section id="slides">
+<h2>Slides<a class="headerlink" href="#slides" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "72eb74c2737e40a689f4402b4e930fc5"}</script></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tutorials/W1D1_Generalization/instructor"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="../chapter_title.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Generalization</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="W1D1_Tutorial1.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Tutorial 1: Generalization in AI</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisite-knowledge">
+   Prerequisite knowledge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-part-1">
+   Video Part 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-part-2">
+   Video Part 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-part-3">
+   Video Part 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slides">
+   Slides
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Neuromatch
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
+<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://camo.githubusercontent.com/9b9ea65d95c9ef878afa1987df65731d47681336/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f736561626f726e2e737667"></a>
+The contents of this repository are shared under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Software elements are additionally licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD (3-Clause) License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  </body>
+</html>
