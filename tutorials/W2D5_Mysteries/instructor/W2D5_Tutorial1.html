@@ -454,6 +454,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Intro.html">Intro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Tutorial1.html">Tutorial 1: Depth vs width</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Tutorial2.html">Tutorial 2: Double descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/instructor/W2D1_Tutorial3.html">Tutorial 3: Neural network modularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../W2D1_Macrocircuits/further_reading.html">Suggested further readings</a></li>
 </ul>
 </li>
@@ -471,6 +472,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D3_Microlearning/chapter_title.html">Microlearning (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Intro.html">Intro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/instructor/W2D3_Tutorial1.html">Tutorial 1: Microlearning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../W2D3_Microlearning/further_reading.html">Suggested further readings</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../W2D4_Macrolearning/chapter_title.html">Macrolearning (W2D4)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -697,6 +699,16 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </li>
 <li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-1">
+     Video 1: Guillaume 1
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-2">
+     Video 1: Guillaume 2
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
 <a class="reference internal nav-link" href="#section-1a-modularity-of-the-mind">
      Section 1a: Modularity Of The Mind
     </a>
@@ -737,6 +749,13 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal nav-link" href="#rims-and-consciousness">
        RIMs and consciousness
       </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-3">
+         Video 1: Guillaume 3
+        </a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -756,6 +775,13 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal nav-link" href="#recap">
      Recap
     </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-4">
+       Video 1: Guillaume 4
+      </a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -778,6 +804,13 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal nav-link" href="#id6">
        Discussion point
       </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-5">
+         Video 1: Guillaume 5
+        </a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -958,7 +991,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5a4ba179d0744214ab14562743381117"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5252e6ea367f4b029974825505014ce7"}</script></div>
 </div>
 </section>
 <hr class="docutils"/>
@@ -1006,8 +1039,62 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 <section id="import-dependencies">
 <h3>Import dependencies<a class="headerlink" href="#import-dependencies" title="Permalink to this heading">#</a></h3>
-<p>Enhanced organization and clarity in import statements for better readability</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting torch_optimizer
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading torch_optimizer-0.3.0-py3-none-any.whl.metadata (55 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">0.0/55.9 kB</span> <span class="-Color -Color-Red">?</span> eta <span class="-Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">55.9/55.9 kB</span> <span class="-Color -Color-Red">2.8 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: torch&gt;=1.5.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch_optimizer) (2.3.1)
+Collecting pytorch-ranger&gt;=0.1.1 (from torch_optimizer)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pytorch_ranger-0.1.1-py3-none-any.whl.metadata (509 bytes)
+Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (3.15.1)
+Requirement already satisfied: typing-extensions&gt;=4.8.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (4.12.2)
+Requirement already satisfied: sympy in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (1.12.1)
+Requirement already satisfied: networkx in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (3.2.1)
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (3.1.4)
+Requirement already satisfied: fsspec in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (2024.6.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (8.9.2.26)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (12.1.105)
+Requirement already satisfied: triton==2.3.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from torch&gt;=1.5.0-&gt;torch_optimizer) (2.3.1)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from nvidia-cusolver-cu12==11.4.5.107-&gt;torch&gt;=1.5.0-&gt;torch_optimizer) (12.5.40)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from jinja2-&gt;torch&gt;=1.5.0-&gt;torch_optimizer) (2.1.5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mpmath&lt;1.4.0,&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from sympy-&gt;torch&gt;=1.5.0-&gt;torch_optimizer) (1.3.0)
+Downloading torch_optimizer-0.3.0-py3-none-any.whl (61 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">0.0/61.9 kB</span> <span class="-Color -Color-Red">?</span> eta <span class="-Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">61.9/61.9 kB</span> <span class="-Color -Color-Red">7.9 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pytorch_ranger-0.1.1-py3-none-any.whl (14 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pytorch-ranger, torch_optimizer
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed pytorch-ranger-0.1.1 torch_optimizer-0.3.0
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1067,17 +1154,12 @@ const thebe_selector_output = ".output, .cell_output"
 
         <span class="c1"># Define the encoder, hidden, and decoder layers with specified units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">hidden_units</span><span class="p">)</span>
-
-
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="n">hidden_units</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="n">hidden_units</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
         <span class="c1"># Dropout layer to prevent overfitting</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-
-        <span class="c1"># Temperature parameter for activation sharpness control</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="mf">1.0</span>
 
         <span class="c1"># Set the data factor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_factor</span> <span class="o">=</span> <span class="n">data_factor</span>
@@ -1097,7 +1179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">        </span><span class="sd">"""Initializes weights of the encoder, hidden, and decoder layers uniformly."""</span>
         <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
         <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
@@ -1110,11 +1192,14 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">        - Tensor: The output of the network after passing through the layers and activations.</span>
 <span class="sd">        """</span>
         <span class="c1"># Encoder step with dropout and sigmoid activation</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="c1"># Decoder step with LSTM and output layer</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
+        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">x</span>
 
@@ -1141,8 +1226,8 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="c1"># Pre-training and hyperparameters</span>
     <span class="n">learning_rate_1</span> <span class="o">=</span> <span class="mf">0.9</span>
     <span class="n">learning_rate_2</span> <span class="o">=</span> <span class="mf">0.1</span>
-    <span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">150</span>
-    <span class="n">momentum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">momentum</span> <span class="o">=</span> <span class="mf">0.9</span>
     <span class="n">temperature</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="n">Threshold</span><span class="o">=</span><span class="mf">0.5</span>
 
@@ -1188,14 +1273,15 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="n">criterion_1</span> <span class="o">=</span> <span class="n">logcosh</span>
   <span class="n">criterion_2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
 
-  <span class="n">optimizer_1</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">first_order_network</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate_1</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">momentum</span><span class="p">)</span>
-  <span class="n">optimizer_2</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">second_order_network</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate_2</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">momentum</span><span class="p">)</span>
+  <span class="n">optimizer_1</span> <span class="o">=</span> <span class="n">optim2</span><span class="o">.</span><span class="n">SWATS</span><span class="p">(</span><span class="n">first_order_network</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate_1</span><span class="p">)</span>
+  <span class="n">optimizer_2</span> <span class="o">=</span> <span class="n">optim2</span><span class="o">.</span><span class="n">SWATS</span><span class="p">(</span><span class="n">second_order_network</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate_2</span><span class="p">)</span>
 
   <span class="c1"># Learning rate schedulers</span>
   <span class="n">scheduler_1</span> <span class="o">=</span> <span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer_1</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">stepsize</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gam</span><span class="p">)</span>
   <span class="n">scheduler_2</span> <span class="o">=</span> <span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer_2</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">stepsize</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gam</span><span class="p">)</span>
 
-  <span class="k">return</span> <span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">criterion_1</span><span class="p">,</span> <span class="n">criterion_2</span><span class="p">,</span> <span class="n">optimizer_1</span><span class="p">,</span> <span class="n">optimizer_2</span><span class="p">,</span> <span class="n">scheduler_1</span><span class="p">,</span> <span class="n">scheduler_2</span>
+  <span class="k">return</span> <span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">criterion_1</span> <span class="p">,</span> <span class="n">criterion_2</span><span class="p">,</span> <span class="n">optimizer_1</span><span class="p">,</span> <span class="n">optimizer_2</span><span class="p">,</span> <span class="n">scheduler_1</span><span class="p">,</span> <span class="n">scheduler_2</span>
+
 
 <span class="k">def</span> <span class="nf">title</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="c1"># Enable XKCD plot styling</span>
@@ -1269,7 +1355,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># Function to test the model using the configured testing patterns</span>
 <span class="k">def</span> <span class="nf">testing</span><span class="p">(</span><span class="n">testing_patterns</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">loaded_model</span><span class="p">,</span> <span class="n">loaded_model_2</span><span class="p">):</span>
     <span class="n">results_for_plotting</span> <span class="o">=</span> <span class="p">[]</span>
-
+    <span class="n">max_values_output_first_order</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_indices_output_first_order</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_values_patterns_tensor</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_indices_patterns_tensor</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">f1_scores_wager</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c1"># Iterate through each set of testing patterns and targets</span>
@@ -1322,6 +1411,45 @@ const thebe_selector_output = ".output, .cell_output"
 
             <span class="c1"># Plot input and output of the first-order network</span>
             <span class="n">plot_input_output</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">output_first_order</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+            <span class="n">max_vals_out</span><span class="p">,</span> <span class="n">max_inds_out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">output_first_order</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">max_inds_out</span><span class="p">[</span><span class="n">max_vals_out</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">max_values_output_first_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_vals_out</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            <span class="n">max_indices_output_first_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_inds_out</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+            <span class="n">max_vals_pat</span><span class="p">,</span> <span class="n">max_inds_pat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">input_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">max_inds_pat</span><span class="p">[</span><span class="n">max_vals_pat</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">max_values_patterns_tensor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_vals_pat</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            <span class="n">max_indices_patterns_tensor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_inds_pat</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+            <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+            <span class="c1"># Scatter plot of indices: patterns_tensor vs. output_first_order</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">max_indices_patterns_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">max_indices_output_first_order</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Stimuli location: First Order Input vs. First Order Output'</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'First Order Input Indices'</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'First Order Output Indices'</span><span class="p">)</span>
+
+            <span class="c1"># Add quadratic fit to scatter plot</span>
+            <span class="n">x_indices</span> <span class="o">=</span> <span class="n">max_indices_patterns_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y_indices</span> <span class="o">=</span> <span class="n">max_indices_output_first_order</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y_pred_indices</span> <span class="o">=</span> <span class="n">perform_quadratic_regression</span><span class="p">(</span><span class="n">x_indices</span><span class="p">,</span> <span class="n">y_indices</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_indices</span><span class="p">,</span> <span class="n">y_pred_indices</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'skyblue'</span><span class="p">)</span>
+
+            <span class="c1"># Scatter plot of values: patterns_tensor vs. output_first_order</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">max_values_patterns_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">max_values_output_first_order</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Stimuli Values: First Order Input vs. First Order Output'</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'First Order Input Values'</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'First Order Output Values'</span><span class="p">)</span>
+
+            <span class="c1"># Add quadratic fit to scatter plot</span>
+            <span class="n">x_values</span> <span class="o">=</span> <span class="n">max_values_patterns_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y_values</span> <span class="o">=</span> <span class="n">max_values_output_first_order</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y_pred_values</span> <span class="o">=</span> <span class="n">perform_quadratic_regression</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">)</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_pred_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'skyblue'</span><span class="p">)</span>
+
+            <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">f1_scores_wager</span><span class="p">,</span> <span class="n">results_for_plotting</span>
 
@@ -1429,42 +1557,42 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># @markdown</span>
 
 <span class="k">def</span> <span class="nf">plot_testing</span><span class="p">(</span><span class="n">results_for_plotting</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
-        <span class="n">Testing_graph_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Suprathreshold stimulus"</span><span class="p">,</span> <span class="s2">"Subthreshold stimulus"</span><span class="p">,</span> <span class="s2">"Low Vision"</span><span class="p">]</span>
-<span class="w">        </span><span class="sd">"""Plot a table focused on 'PRECISION', 'RECALL', 'F1 SCORE', indicating consciousness level and testing scenario."""</span>
-        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">results_for_plotting</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># Adjusted for added header space</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'tight'</span><span class="p">)</span>
 
-        <span class="c1"># Define column labels</span>
-        <span class="n">col_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Scenario"</span><span class="p">,</span> <span class="s2">"Consciousness Level"</span><span class="p">,</span> <span class="s2">"PRECISION"</span><span class="p">,</span> <span class="s2">"RECALL"</span><span class="p">,</span> <span class="s2">"F1 SCORE"</span><span class="p">]</span>
+    <span class="n">Testing_graph_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Suprathreshold stimulus"</span><span class="p">,</span> <span class="s2">"Subthreshold stimulus"</span><span class="p">,</span> <span class="s2">"Low Vision"</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">"""Plot a table focused on 'PRECISION', 'RECALL', 'F1 SCORE', indicating consciousness level and testing scenario."""</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">results_for_plotting</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># Adjusted for added header space</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'tight'</span><span class="p">)</span>
 
-        <span class="c1"># Initialize list to hold all rows of data including headers</span>
-        <span class="n">full_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Define column labels</span>
+    <span class="n">col_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Scenario"</span><span class="p">,</span> <span class="s2">"Consciousness Level"</span><span class="p">,</span> <span class="s2">"PRECISION"</span><span class="p">,</span> <span class="s2">"RECALL"</span><span class="p">,</span> <span class="s2">"F1 SCORE"</span><span class="p">]</span>
 
-        <span class="c1"># Process each result to extract and prepare the data rows</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results_for_plotting</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">metrics</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s2">"High Consciousness"</span><span class="p">,</span> <span class="s2">"Low Consciousness"</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s2">"metrics"</span><span class="p">]):</span>
-                <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="n">Testing_graph_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">level</span><span class="p">]</span> <span class="o">+</span> <span class="n">metrics</span>
-                <span class="n">full_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="c1"># Initialize list to hold all rows of data including headers</span>
+    <span class="n">full_data</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="c1"># Extract metric values for color scaling (excluding the first two columns which are text)</span>
-        <span class="n">metric_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">full_data</span><span class="p">)[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Convert to float for color scaling</span>
-        <span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">metric_values</span><span class="p">)</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="n">metric_values</span> <span class="o">/</span> <span class="n">max_value</span>  <span class="c1"># Normalize for color mapping</span>
+    <span class="c1"># Process each result to extract and prepare the data rows</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results_for_plotting</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">metrics</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s2">"High Consciousness"</span><span class="p">,</span> <span class="s2">"Low Consciousness"</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s2">"metrics"</span><span class="p">]):</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="n">Testing_graph_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">level</span><span class="p">]</span> <span class="o">+</span> <span class="n">metrics</span>
+            <span class="n">full_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
-        <span class="c1"># Prepare colors for all cells, defaulting to white for non-metric cells</span>
-        <span class="n">cell_colors</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"white"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">(</span><span class="n">colors</span><span class="p">)]</span>
+    <span class="c1"># Extract metric values for color scaling (excluding the first two columns which are text)</span>
+    <span class="n">metric_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">full_data</span><span class="p">)[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Convert to float for color scaling</span>
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">metric_values</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">metric_values</span> <span class="o">/</span> <span class="n">max_value</span>  <span class="c1"># Normalize for color mapping</span>
 
-        <span class="c1"># Create the table with cell colors</span>
-        <span class="n">table</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">full_data</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">col_labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">cellLoc</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">cellColours</span><span class="o">=</span><span class="n">cell_colors</span><span class="p">)</span>
-        <span class="n">table</span><span class="o">.</span><span class="n">auto_set_font_size</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">table</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">table</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+    <span class="c1"># Prepare colors for all cells, defaulting to white for non-metric cells</span>
+    <span class="n">cell_colors</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"white"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">(</span><span class="n">colors</span><span class="p">)]</span>
 
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="c1"># Create the table with cell colors</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">full_data</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">col_labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">cellLoc</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">cellColours</span><span class="o">=</span><span class="n">cell_colors</span><span class="p">)</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">auto_set_font_size</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">plot_signal_max_and_indicator</span><span class="p">(</span><span class="n">patterns_tensor</span><span class="p">,</span> <span class="n">plot_title</span><span class="o">=</span><span class="s2">"Training Signals"</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
@@ -1473,36 +1601,34 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    Parameters:</span>
 <span class="sd">    - patterns_tensor: A tensor containing signals, where each signal is expected to have multiple units.</span>
 <span class="sd">    """</span>
-    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
-        <span class="c1"># Calculate the maximum value of units for each signal within the patterns tensor</span>
-        <span class="c1"># Fix: Detach the tensor from the computation graph before converting to NumPy</span>
-        <span class="n">max_values_of_units</span> <span class="o">=</span> <span class="n">patterns_tensor</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
-        <span class="c1"># Determine the binary indicators based on the max value being greater than 0.5</span>
-        <span class="n">binary_indicators</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_values_of_units</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1"># Calculate the maximum value of units for each signal within the patterns tensor</span>
+    <span class="n">max_values_of_units</span> <span class="o">=</span> <span class="n">patterns_tensor</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># Ensure it's on CPU and in NumPy format for plotting</span>
 
-        <span class="c1"># Create a figure with 2 subplots (2 rows, 1 column)</span>
-        <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="c1"># Determine the binary indicators based on the max value being greater than 0.5</span>
+    <span class="n">binary_indicators</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_values_of_units</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
-        <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">plot_title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>  <span class="c1"># Set the overall title for the plot</span>
+    <span class="c1"># Create a figure with 2 subplots (2 rows, 1 column)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
-        <span class="c1"># First subplot for the maximum values of each signal</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">patterns_tensor</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="n">max_values_of_units</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">'steps-mid'</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Pattern Number'</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Max Value of Signal Units'</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>  <span class="c1"># Adjust y-axis limits for clarity</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">plot_title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>  <span class="c1"># Set the overall title for the plot</span>
 
-        <span class="c1"># Second subplot for the binary indicators</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">patterns_tensor</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="n">binary_indicators</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">'steps-mid'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Pattern Number'</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Indicator (Max &gt; 0.5) in each signal'</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>  <span class="c1"># Adjust y-axis limits for clarity</span>
-        <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># First subplot for the maximum values of each signal</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">patterns_tensor</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="n">max_values_of_units</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">'steps-mid'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Pattern Number'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Max Value of Signal Units'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>  <span class="c1"># Adjust y-axis limits for clarity</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="c1"># Second subplot for the binary indicators</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">patterns_tensor</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="n">binary_indicators</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">'steps-mid'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Pattern Number'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Indicator (Max &gt; 0.5) in each signal'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>  <span class="c1"># Adjust y-axis limits for clarity</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">perform_quadratic_regression</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
@@ -1511,39 +1637,82 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">epoch_list</span><span class="p">)</span>        <span class="c1"># Evaluate the polynomial at the given x values</span>
     <span class="k">return</span> <span class="n">y_pred</span>
 
-<span class="k">def</span> <span class="nf">pre_train_plots</span><span class="p">(</span><span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="c1"># LOSS PLOTS</span>
+
+<span class="k">def</span> <span class="nf">pre_train_plots</span><span class="p">(</span><span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">max_values_indices</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Plots the training progress with regression lines and scatter plots of indices and values of max elements.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - epoch_list (list): List of epoch numbers.</span>
+<span class="sd">    - epoch_1_order (list): Loss values for the first-order network over epochs.</span>
+<span class="sd">    - epoch_2_order (list): Loss values for the second-order network over epochs.</span>
+<span class="sd">    - title (str): Title for the plots.</span>
+<span class="sd">    - max_values_indices (tuple): Tuple containing lists of max values and indices for both tensors.</span>
+<span class="sd">    """</span>
+    <span class="p">(</span><span class="n">max_values_output_first_order</span><span class="p">,</span>
+     <span class="n">max_indices_output_first_order</span><span class="p">,</span>
+     <span class="n">max_values_patterns_tensor</span><span class="p">,</span>
+     <span class="n">max_indices_patterns_tensor</span><span class="p">)</span> <span class="o">=</span> <span class="n">max_values_indices</span>
+
+    <span class="c1"># Perform quadratic regression for the loss plots</span>
+    <span class="n">epoch_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">epoch_1_order</span><span class="p">)))</span>
     <span class="n">y_pred1</span> <span class="o">=</span> <span class="n">perform_quadratic_regression</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">epoch_1_order</span><span class="p">)</span>
     <span class="n">y_pred2</span> <span class="o">=</span> <span class="n">perform_quadratic_regression</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">)</span>
 
-    <span class="c1"># Using plt.xkcd() context manager</span>
-    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
-        <span class="c1"># Set up the plot with 1 row and 2 columns</span>
-        <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Adjust the figure size as needed</span>
+    <span class="c1"># Set up the plot with 2 rows and 2 columns</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
-        <span class="c1"># First graph for 1st Order Network</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">)</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">y_pred1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'-'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Quadratic Fit'</span><span class="p">)</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'1st Order Network'</span><span class="p">,</span> <span class="s1">'Quadratic Fit'</span><span class="p">])</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'1st Order Network Loss'</span><span class="p">)</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Epochs - Pretraining Phase'</span><span class="p">)</span>
-        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Loss'</span><span class="p">)</span>
+    <span class="c1"># First graph for 1st Order Network</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">y_pred1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'-'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Quadratic Fit'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'1st Order Network'</span><span class="p">,</span> <span class="s1">'Quadratic Fit'</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'1st Order Network Loss'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Epochs - Pretraining Phase'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Loss'</span><span class="p">)</span>
 
-        <span class="c1"># Second graph for 2nd Order Network</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">y_pred2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'-'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Quadratic Fit'</span><span class="p">)</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'2nd Order Network'</span><span class="p">,</span> <span class="s1">'Quadratic Fit'</span><span class="p">])</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'2nd Order Network Loss'</span><span class="p">)</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Epochs - Pretraining Phase'</span><span class="p">)</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Loss'</span><span class="p">)</span>
+    <span class="c1"># Second graph for 2nd Order Network</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_list</span><span class="p">,</span> <span class="n">y_pred2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'-'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Quadratic Fit'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'2nd Order Network'</span><span class="p">,</span> <span class="s1">'Quadratic Fit'</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'2nd Order Network Loss'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Epochs - Pretraining Phase'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Loss'</span><span class="p">)</span>
 
-        <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+    <span class="c1"># Scatter plot of indices: patterns_tensor vs. output_first_order</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">max_indices_patterns_tensor</span><span class="p">,</span> <span class="n">max_indices_output_first_order</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-        <span class="c1"># Display the plots side by side</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'Blindsight_Pre_training_Loss_</span><span class="si">{}</span><span class="s1">.png'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)),</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="c1"># Add quadratic regression line</span>
+    <span class="n">indices_regression</span> <span class="o">=</span> <span class="n">perform_quadratic_regression</span><span class="p">(</span><span class="n">max_indices_patterns_tensor</span><span class="p">,</span> <span class="n">max_indices_output_first_order</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_indices_patterns_tensor</span><span class="p">,</span> <span class="n">indices_regression</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'skyblue'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Quadratic Fit'</span><span class="p">)</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Stimuli location: First Order Input vs. First Order Output'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'First Order Input Indices'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'First Order Output Indices'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="c1"># Scatter plot of values: patterns_tensor vs. output_first_order</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">max_values_patterns_tensor</span><span class="p">,</span> <span class="n">max_values_output_first_order</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Add quadratic regression line</span>
+    <span class="n">values_regression</span> <span class="o">=</span> <span class="n">perform_quadratic_regression</span><span class="p">(</span><span class="n">max_values_patterns_tensor</span><span class="p">,</span> <span class="n">max_values_output_first_order</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_values_patterns_tensor</span><span class="p">,</span> <span class="n">values_regression</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'skyblue'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Quadratic Fit'</span><span class="p">)</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Stimuli Values: First Order Input vs. First Order Output'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'First Order Input Values'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'First Order Output Values'</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+
+    <span class="c1"># Display the plots in a 2x2 grid</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'Blindsight_Pre_training_Loss_</span><span class="si">{}</span><span class="s1">.png'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)),</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+
+
+
 
 <span class="c1"># Function to configure the training environment and load the models</span>
 <span class="k">def</span> <span class="nf">config_training</span><span class="p">(</span><span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">hidden</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">gelu</span><span class="p">):</span>
@@ -1647,12 +1816,26 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="section-1-global-neuronal-workspace">
 <h1>Section 1: Global Neuronal Workspace<a class="headerlink" href="#section-1-global-neuronal-workspace" title="Permalink to this heading">#</a></h1>
-<p>Before we get started, we will hear from Claire Sergent, who will talk a bit about the neural correlates of consciousness, her research using the global workspace model, and its implications for distinguishing conscious from non-conscious processing.</p>
+<p>Before we get started, we will hear from Claire and Guillaume, who will talk a bit about the neural correlates of consciousness, their research using the global workspace model, and its implications for distinguishing conscious from non-conscious processing.</p>
 <section id="video-1-consciousness-c2-activity">
 <h2>Video 1: Consciousness C2 Activity<a class="headerlink" href="#video-1-consciousness-c2-activity" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8d828a6010354fb0bc2f1c03063da251"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d269707c9e2e4867a2a4964ff4c3f508"}</script></div>
+</div>
+</section>
+<section id="video-1-guillaume-1">
+<h2>Video 1: Guillaume 1<a class="headerlink" href="#video-1-guillaume-1" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d7d92029c206454aa85659c0ed28c977"}</script></div>
+</div>
+</section>
+<section id="video-1-guillaume-2">
+<h2>Video 1: Guillaume 2<a class="headerlink" href="#video-1-guillaume-2" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "43dae7e400714d3e8bc39984629d79fb"}</script></div>
 </div>
 </section>
 <section id="section-1a-modularity-of-the-mind">
@@ -1764,7 +1947,9 @@ remote: Counting objects:   5% (26/516)
 remote: Counting objects:   6% (31/516)
 remote: Counting objects:   7% (37/516)
 remote: Counting objects:   8% (42/516)
-remote: Counting objects:   9% (47/516)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Counting objects:   9% (47/516)
 remote: Counting objects:  10% (52/516)
 remote: Counting objects:  11% (57/516)
 remote: Counting objects:  12% (62/516)
@@ -1961,9 +2146,7 @@ remote: Compressing objects: 100% (254/254)
 remote: Compressing objects: 100% (254/254), done.
 Receiving objects:   0% (1/516)
 Receiving objects:   1% (6/516)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:   2% (11/516)
+Receiving objects:   2% (11/516)
 Receiving objects:   3% (16/516)
 Receiving objects:   4% (21/516)
 Receiving objects:   5% (26/516)
@@ -1990,7 +2173,9 @@ Receiving objects:  25% (129/516)
 Receiving objects:  26% (135/516)
 Receiving objects:  27% (140/516)
 Receiving objects:  28% (145/516)
-Receiving objects:  29% (150/516)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  29% (150/516)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  30% (155/516)
@@ -2052,28 +2237,28 @@ Receiving objects:  79% (408/516)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Total 516 (delta 285), reused 460 (delta 252), pack-reused 0
-Receiving objects:  80% (413/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  81% (418/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  82% (424/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  83% (429/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  84% (434/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  85% (439/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  86% (444/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  87% (449/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  88% (455/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  89% (460/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  90% (465/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  91% (470/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  92% (475/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  93% (480/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  94% (486/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  95% (491/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  96% (496/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  97% (501/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  98% (506/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects:  99% (511/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects: 100% (516/516), 27.08 MiB | 54.14 MiB/s
-Receiving objects: 100% (516/516), 27.94 MiB | 54.18 MiB/s, done.
+Receiving objects:  80% (413/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  81% (418/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  82% (424/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  83% (429/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  84% (434/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  85% (439/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  86% (444/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  87% (449/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  88% (455/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  89% (460/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  90% (465/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  91% (470/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  92% (475/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  93% (480/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  94% (486/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  95% (491/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  96% (496/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  97% (501/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  98% (506/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects:  99% (511/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects: 100% (516/516), 26.17 MiB | 52.33 MiB/s
+Receiving objects: 100% (516/516), 27.94 MiB | 52.88 MiB/s, done.
 Resolving deltas:   0% (0/285)
 Resolving deltas:   1% (3/285)
 Resolving deltas:   2% (6/285)
@@ -2082,7 +2267,7 @@ Resolving deltas:   4% (12/285)
 Resolving deltas:   5% (15/285)
 Resolving deltas:   6% (18/285)
 Resolving deltas:   7% (20/285)
-Resolving deltas:   8% (23/285)
+Resolving deltas:   8% (24/285)
 Resolving deltas:   9% (26/285)
 Resolving deltas:  10% (29/285)
 Resolving deltas:  11% (32/285)
@@ -2128,7 +2313,7 @@ Resolving deltas:  50% (143/285)
 Resolving deltas:  51% (146/285)
 Resolving deltas:  52% (149/285)
 Resolving deltas:  53% (152/285)
-Resolving deltas:  54% (154/285)
+Resolving deltas:  54% (155/285)
 Resolving deltas:  55% (157/285)
 Resolving deltas:  56% (160/285)
 Resolving deltas:  57% (163/285)
@@ -2174,7 +2359,9 @@ Resolving deltas:  96% (274/285)
 Resolving deltas:  97% (277/285)
 Resolving deltas:  98% (280/285)
 Resolving deltas:  99% (283/285)
-Resolving deltas: 100% (285/285)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resolving deltas: 100% (285/285)
 Resolving deltas: 100% (285/285), done.
 </pre></div>
 </div>
@@ -2305,13 +2492,13 @@ Total validation samples: 20
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">76</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">76</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Configuration: </span><span class="si">{</span><span class="n">config</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">validation_functions</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">76</span>     <span class="n">accuracy</span> <span class="o">=</span> <span class="n">test_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">77</span>     <span class="n">validation_accuracies_rim</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
 
-<span class="nn">Cell In[10], line 59,</span> in <span class="ni">test_model</span><span class="nt">(model, loader, func)</span>
+<span class="nn">Cell In[12], line 59,</span> in <span class="ni">test_model</span><span class="nt">(model, loader, func)</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="n">test_x</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">test_y</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">59</span> <span class="n">probs</span>  <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
@@ -2355,6 +2542,61 @@ Total validation samples: 20
 <span class="ne">-&gt; </span><span class="mi">1541</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1543</span> <span class="k">try</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">1544</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File ~/work/instructor-neuroai-course-content/instructor-neuroai-course-content/tutorials/W2D5_Mysteries/instructor/RIMs-Sequential-MNIST/RIM.py:233,</span> in <span class="ni">RIMCell.forward</span><span class="nt">(self, x, hs, cs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="c1"># Compute RNN(LSTM or GRU) output</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="k">if</span> <span class="n">cs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">233</span> 	<span class="n">hs</span><span class="p">,</span> <span class="n">cs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="p">(</span><span class="n">hs</span><span class="p">,</span> <span class="n">cs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span> 	<span class="n">hs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">hs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/torch/nn/modules/module.py:1532,</span> in <span class="ni">Module._wrapped_call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1531</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1532</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/torch/nn/modules/module.py:1541,</span> in <span class="ni">Module._call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1536</span> <span class="c1"># If we don't have any hooks, we want to skip the rest of the logic in</span>
+<span class="g g-Whitespace">   </span><span class="mi">1537</span> <span class="c1"># this function, and just call forward.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1538</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backward_pre_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1539</span>         <span class="ow">or</span> <span class="n">_global_backward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1540</span>         <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1541</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1543</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1544</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File ~/work/instructor-neuroai-course-content/instructor-neuroai-course-content/tutorials/W2D5_Mysteries/instructor/RIMs-Sequential-MNIST/RIM.py:52,</span> in <span class="ni">GroupLSTMCell.forward</span><span class="nt">(self, x, hid_state)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span><span class="w"> </span><span class="sd">"""</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span><span class="sd"> input: x (batch_size, num_lstms, input_size)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span><span class="sd"> 	   hid_state (tuple of length 2 with each element of size (batch_size, num_lstms, hidden_state))</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span><span class="sd"> output: h (batch_size, num_lstms, hidden_state)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span><span class="sd"> 		c ((batch_size, num_lstms, hidden_state))</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="sd"> """</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="n">h</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">hid_state</span>
+<span class="ne">---&gt; </span><span class="mi">52</span> <span class="n">preact</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">i2h</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">h2h</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="n">gates</span> <span class="o">=</span> <span class="n">preact</span><span class="p">[:,</span> <span class="p">:,</span>  <span class="p">:</span><span class="mi">3</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">]</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="n">g_t</span> <span class="o">=</span> <span class="n">preact</span><span class="p">[:,</span> <span class="p">:,</span>  <span class="mi">3</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">:]</span><span class="o">.</span><span class="n">tanh</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/torch/nn/modules/module.py:1532,</span> in <span class="ni">Module._wrapped_call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1531</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1532</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/torch/nn/modules/module.py:1541,</span> in <span class="ni">Module._call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1536</span> <span class="c1"># If we don't have any hooks, we want to skip the rest of the logic in</span>
+<span class="g g-Whitespace">   </span><span class="mi">1537</span> <span class="c1"># this function, and just call forward.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1538</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backward_pre_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1539</span>         <span class="ow">or</span> <span class="n">_global_backward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1540</span>         <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1541</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1543</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1544</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File ~/work/instructor-neuroai-course-content/instructor-neuroai-course-content/tutorials/W2D5_Mysteries/instructor/RIMs-Sequential-MNIST/RIM.py:23,</span> in <span class="ni">GroupLinearLayer.forward</span><span class="nt">(self, x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">23</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2498,6 +2740,11 @@ Total validation samples: 20
 <h3>RIMs and consciousness<a class="headerlink" href="#rims-and-consciousness" title="Permalink to this heading">#</a></h3>
 <p>You might wonder how RIMs relate to consciousness. As we have seen, RIMs focus on modularity in neural processing. In this approach, various modules or units operate semi-independently but coordinate through a mechanism akin to attention. This modularity allows the system to specialize in different tasks, with the attention mechanism directing computational resources efficiently by focusing on the most relevant parts of a problem at any given time.</p>
 <p>Like RIMs, the brain is modularly organized. Many theories of consciousness posit that consciousness emerges from the interaction of various specialized, yet relatively independent, neural circuits or modules. Each of these modules processes specific types of information or performs distinct cognitive functions. Global Workspace Theory, which we’ll cover in the next section, is a canonical example of a modular theory of consciousness.</p>
+<section id="video-1-guillaume-3">
+<h4>Video 1: Guillaume 3<a class="headerlink" href="#video-1-guillaume-3" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
 </section>
 </section>
 <hr class="docutils"/>
@@ -2681,6 +2928,11 @@ Total validation samples: 20
 <li><p>GWT-inspired models use a shared workspace to coordinate between specialized modules.</p></li>
 </ul>
 <p>These frameworks inspired by the brain embed some of the characteristics of popular models of consciousness. By mimicking how different parts of the brain might communicate and dominate the global workspace at different times, these models provide insight into how conscious awareness and decision-making could emerge in the brain.</p>
+<section id="video-1-guillaume-4">
+<h3>Video 1: Guillaume 4<a class="headerlink" href="#video-1-guillaume-4" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
 </section>
 </section>
 <hr class="docutils"/>
@@ -2720,9 +2972,10 @@ Total validation samples: 20
 <p>The first-order network model lays the groundwork for our experiments and is structured as follows:</p>
 <ul class="simple">
 <li><p>Input layer: consists of 100 units representing either noise or stimulus patterns.</p></li>
-<li><p>Hidden layer: includes a 60-unit layer tasked with processing the inputs.</p></li>
+<li><p>Hidden layer: includes a 180-unit layer tasked with processing the inputs.</p></li>
 <li><p>Output layer: comprises 100 units where the responses to stimuli are recorded.</p></li>
 <li><p>Dropout and activation: includes dropout layers to prevent overfitting and a temperature-controlled activation function to fine-tune response sharpness.</p></li>
+<li><p>LSTM-based decoder: implemented for precise stimuli location in the group of neurons when decoding the signal.</p></li>
 </ul>
 <p>The primary aim of the first-order network is to accurately capture and react to the input patterns, setting a baseline for comparison with more complex models.</p>
 <section id="activity-1-developing-a-second-order-network">
@@ -2770,6 +3023,11 @@ Total validation samples: 20
         <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comparison_layer</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
         <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wager</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">_init_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Uniformly initialize weights for the comparison and wager layers</span>
+        <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comparison_layer</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wager</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_order_input</span><span class="p">,</span> <span class="n">first_order_output</span><span class="p">):</span>
         <span class="c1">############################################################</span>
         <span class="c1"># Fill in the wager value</span>
@@ -2786,7 +3044,7 @@ Total validation samples: 20
         <span class="c1"># Pass the difference through the comparison layer and apply the chosen activation function</span>
         <span class="n">comparison_out</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comparison_layer</span><span class="p">(</span><span class="n">comparison_matrix</span><span class="p">)))</span>
 
-        <span class="c1"># Calculate the wager value</span>
+        <span class="c1"># Calculate the wager value, applying dropout and sigmoid activation to the output of the wager layer</span>
         <span class="n">wager</span> <span class="o">=</span> <span class="o">...</span>
 
         <span class="k">return</span> <span class="n">wager</span>
@@ -2834,7 +3092,7 @@ Total validation samples: 20
         <span class="c1"># Pass the difference through the comparison layer and apply the chosen activation function</span>
         <span class="n">comparison_out</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comparison_layer</span><span class="p">(</span><span class="n">comparison_matrix</span><span class="p">)))</span>
 
-        <span class="c1"># Calculate the wager value</span>
+        <span class="c1"># Calculate the wager value, applying dropout and sigmoid activation to the output of the wager layer</span>
         <span class="n">wager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wager</span><span class="p">(</span><span class="n">comparison_out</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">wager</span>
@@ -2845,10 +3103,11 @@ Total validation samples: 20
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the architecture, optimizers, loss functions, and schedulers for pre training</span>
-<span class="n">hidden</span><span class="o">=</span><span class="mi">60</span>
+<span class="c1"># Hyperparameters</span>
+<span class="n">hidden</span><span class="o">=</span><span class="mi">180</span>
 <span class="n">factor</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">gelu</span><span class="o">=</span><span class="kc">False</span>
-<span class="n">gam</span><span class="o">=</span><span class="mf">0.99</span>
+<span class="n">gam</span><span class="o">=</span><span class="mf">0.98</span>
 <span class="n">meta</span><span class="o">=</span><span class="kc">True</span>
 <span class="n">stepsize</span><span class="o">=</span><span class="mi">50</span>
 
@@ -2862,7 +3121,7 @@ Total validation samples: 20
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pre_train</span><span class="p">(</span><span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">criterion_1</span><span class="p">,</span> <span class="n">criterion_2</span><span class="p">,</span> <span class="n">optimizer_1</span><span class="p">,</span> <span class="n">optimizer_2</span><span class="p">,</span> <span class="n">scheduler_1</span><span class="p">,</span> <span class="n">scheduler_2</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">meta</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pre_train</span><span class="p">(</span><span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">criterion_1</span><span class="p">,</span>  <span class="n">criterion_2</span><span class="p">,</span> <span class="n">optimizer_1</span><span class="p">,</span> <span class="n">optimizer_2</span><span class="p">,</span> <span class="n">scheduler_1</span><span class="p">,</span> <span class="n">scheduler_2</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">meta</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Conducts pre-training for first-order and second-order networks.</span>
 
@@ -2878,6 +3137,15 @@ Total validation samples: 20
 <span class="sd">    Returns:</span>
 <span class="sd">    Tuple containing updated networks and epoch-wise loss records.</span>
 <span class="sd">    """</span>
+
+    <span class="n">max_values_output_first_order</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_indices_output_first_order</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_values_patterns_tensor</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_indices_patterns_tensor</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">epoch_1_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">)</span>
+    <span class="n">epoch_2_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">)</span>
+
     <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
         <span class="c1"># Generate training patterns and targets for each epoch</span>
         <span class="n">patterns_tensor</span><span class="p">,</span> <span class="n">stim_present_tensor</span><span class="p">,</span> <span class="n">stim_absent_tensor</span><span class="p">,</span> <span class="n">order_2_tensor</span> <span class="o">=</span> <span class="n">generate_patterns</span><span class="p">(</span><span class="n">patterns_number</span><span class="p">,</span> <span class="n">num_units</span><span class="p">)</span>
@@ -2888,6 +3156,23 @@ Total validation samples: 20
 
         <span class="n">patterns_tensor</span><span class="o">=</span><span class="n">patterns_tensor</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">output_first_order</span><span class="o">=</span><span class="n">output_first_order</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+
+        <span class="c1">############################################</span>
+
+        <span class="c1"># Get max values and indices for output_first_order</span>
+        <span class="n">max_vals_out</span><span class="p">,</span> <span class="n">max_inds_out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">output_first_order</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">max_inds_out</span><span class="p">[</span><span class="n">max_vals_out</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">max_values_output_first_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_vals_out</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">max_indices_output_first_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_inds_out</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+        <span class="c1"># Get max values and indices for patterns_tensor</span>
+        <span class="n">max_vals_pat</span><span class="p">,</span> <span class="n">max_inds_pat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">patterns_tensor</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">max_inds_pat</span><span class="p">[</span><span class="n">max_vals_pat</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">max_values_patterns_tensor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_vals_pat</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">max_indices_patterns_tensor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_inds_pat</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+        <span class="c1">############################################</span>
 
 
         <span class="c1"># Conditionally execute the second-order network pass and related operations</span>
@@ -2922,7 +3207,7 @@ Total validation samples: 20
         <span class="n">loss_1</span> <span class="o">=</span> <span class="n">criterion_1</span><span class="p">(</span>  <span class="n">output_first_order</span> <span class="p">,</span> <span class="n">stim_present_tensor</span> <span class="p">)</span>
 
         <span class="c1"># Backpropagate the first-order network's loss</span>
-        <span class="n">loss_1</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">retain_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">loss_1</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 
         <span class="c1"># Update first-order network weights</span>
         <span class="n">optimizer_1</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
@@ -2933,28 +3218,34 @@ Total validation samples: 20
         <span class="n">scheduler_1</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 
         <span class="n">epoch_1_order</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">loss_1</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="c1">#epoch_1_order[epoch] = loss_location.item()</span>
 
-    <span class="k">return</span> <span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span>
+
+
+    <span class="k">return</span> <span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span> <span class="p">,</span> <span class="p">(</span><span class="n">max_values_output_first_order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">max_indices_output_first_order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">max_values_patterns_tensor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">max_indices_patterns_tensor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Hyperparameters</span>
-<span class="n">hidden</span><span class="o">=</span><span class="mi">60</span>
+<span class="n">hidden</span><span class="o">=</span><span class="mi">180</span>
 <span class="n">factor</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">gelu</span><span class="o">=</span><span class="kc">False</span>
-<span class="n">gam</span><span class="o">=</span><span class="mf">0.99</span>
+<span class="n">gam</span><span class="o">=</span><span class="mf">0.98</span>
 <span class="n">meta</span><span class="o">=</span><span class="kc">True</span>
-<span class="n">stepsize</span><span class="o">=</span><span class="mf">.01</span>
+<span class="n">stepsize</span><span class="o">=</span><span class="mi">50</span>
 
-<span class="c1"># Initialize any global variables or settings, potentially for random seed setting or environment setup</span>
+<span class="c1">## Initialize any global variables or settings, potentially for random seed setting or environment setup</span>
 <span class="n">initialize_global</span><span class="p">()</span>
 
 <span class="c1"># Prepare networks, loss functions, optimizers, and schedulers for pre-training</span>
 <span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">criterion_1</span><span class="p">,</span> <span class="n">criterion_2</span><span class="p">,</span> <span class="n">optimizer_1</span><span class="p">,</span> <span class="n">optimizer_2</span><span class="p">,</span> <span class="n">scheduler_1</span><span class="p">,</span> <span class="n">scheduler_2</span> <span class="o">=</span> <span class="n">prepare_pre_training</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">gelu</span><span class="p">,</span> <span class="n">stepsize</span><span class="p">,</span> <span class="n">gam</span><span class="p">)</span>
 
 <span class="c1"># Conduct pre-training for both the first-order and second-order networks</span>
-<span class="n">first_order_network_pre</span><span class="p">,</span> <span class="n">second_order_network_pre</span><span class="p">,</span> <span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span> <span class="o">=</span> <span class="n">pre_train</span><span class="p">(</span><span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">criterion_1</span><span class="p">,</span> <span class="n">criterion_2</span><span class="p">,</span> <span class="n">optimizer_1</span><span class="p">,</span> <span class="n">optimizer_2</span><span class="p">,</span> <span class="n">scheduler_1</span><span class="p">,</span> <span class="n">scheduler_2</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
+<span class="n">first_order_network_pre</span><span class="p">,</span> <span class="n">second_order_network_pre</span><span class="p">,</span> <span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span> <span class="p">,</span> <span class="n">max_value_indices</span> <span class="o">=</span> <span class="n">pre_train</span><span class="p">(</span><span class="n">first_order_network</span><span class="p">,</span> <span class="n">second_order_network</span><span class="p">,</span> <span class="n">criterion_1</span><span class="p">,</span>  <span class="n">criterion_2</span><span class="p">,</span> <span class="n">optimizer_1</span><span class="p">,</span> <span class="n">optimizer_2</span><span class="p">,</span> <span class="n">scheduler_1</span><span class="p">,</span> <span class="n">scheduler_2</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
 
 <span class="c1"># Plot the training progress of both networks to visualize performance and learning trends</span>
-<span class="n">pre_train_plots</span><span class="p">(</span><span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="s2">"1st &amp; 2nd Order Networks"</span><span class="p">)</span>
+<span class="n">pre_train_plots</span><span class="p">(</span><span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="s2">"1st &amp; 2nd Order Networks"</span> <span class="p">,</span> <span class="n">max_value_indices</span> <span class="p">)</span>
 
 <span class="c1"># Configuration step for the main training phase or evaluation</span>
 <span class="n">testing_patterns</span><span class="p">,</span> <span class="n">n_samples</span> <span class="o">=</span> <span class="n">get_test_patterns</span><span class="p">()</span>
@@ -2983,6 +3274,11 @@ Total validation samples: 20
 <li><p>Can you explain how these differences influenced the performance?</p></li>
 <li><p>What role does a second-order network play, and in which situations would it be more effective?</p></li>
 </ul>
+<section id="video-1-guillaume-5">
+<h4>Video 1: Guillaume 5<a class="headerlink" href="#video-1-guillaume-5" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
 </section>
 </section>
 <section id="hoss-model">
@@ -3336,10 +3632,11 @@ is &lt; 0.5.</p></li>
 </section>
 <section id="simulate-ignition-asymmetry-vs-symmetry">
 <h3>Simulate ignition (asymmetry vs. symmetry)<a class="headerlink" href="#simulate-ignition-asymmetry-vs-symmetry" title="Permalink to this heading">#</a></h3>
-<p>A notable feature about the HOSS architecture is that it is designed in a way that there are more possible states that the model can perceive when something is present compared to when something is absent. This setup leads to an interesting observation: when the model decides something is present, it tends to generate more prediction errors across its network. This accumulation of prediction errors is measured using Kullback-Leibler (K-L) divergence at various points in the network, particularly at the W level.</p>
-<p>This behavior, where there is more prediction error during presence decisions, relates closely to what researchers observe in the brain, known as global ignition responses. These responses are significant bursts of brain activity linked to the moment we become aware of something. Studies, such as those by Del Cul et al. (2007) and Dehaene and Changeux (2011), suggest that these responses support theories like the global workspace model, which explains consciousness as a kind of information sharing across different parts of the brain.</p>
-<p>In our model, we explore this by adjusting the strength of the stimulus (referred to as sensory precision) and observing how it affects the prediction errors for both ‘seen’ and ‘unseen’ decisions at different levels of the network.</p>
-<p>However, it’s important to note that in the context of the HOSS architecture, these ignition-like responses are not the cause of information being shared globally across the network. Instead, they are more like side effects (epiphenomenal consequences) of other underlying computations - in simpler terms, these bursts of activity are results of what’s happening deeper in the network, not the direct means of sharing information globally.</p>
+<p>The HOSS architecture is designed to detect whether something is there or not. When it detects something, it ends up making more mistakes in its predictions compared to when it detects nothing. These mistakes are tracked using a method called Kullback-Leibler (K-L) divergence, particularly at a certain level within the model known as the W level.</p>
+<p>This increase in mistakes when something is detected is similar to what happens in the human brain, a phenomenon known as global ignition responses. These are big surges in brain activity that happen when we become conscious of something. Research like that conducted by Del Cul et al. (2007) and Dehaene and Changeux (2011) support this concept, linking it to the global workspace model. This model describes consciousness as the sharing of information across different parts of the brain.</p>
+<p>In our model, we simulate this by adjusting the intensity of the stimulus and observe how the mistakes (prediction errors) vary in the model. Under a theory called predictive coding, which describes how the brain processes information, K-L divergence acts like a marker for neural activity, making it a good stand-in for studying brain-like responses.</p>
+<p>We then classify these prediction errors based on whether the model recognizes a stimulus as “seen” or “unseen.” If the model has a response indicating “seen,” it shows more activity than when it indicates “unseen.” This is what we refer to as ignition — more activity for “seen” stimuli.</p>
+<p>However, it’s crucial to understand that in the HOSS model, these ignition-like responses don’t directly cause the global sharing of information in the network. Rather, they are secondary effects or byproducts of other calculations happening within the network. Essentially, these bursts of activity are outcomes of deeper processes in the network, not the direct mechanisms for distributing information throughout the system.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Experiment parameters</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
 <span class="n">Nsubjects</span> <span class="o">=</span> <span class="mi">30</span>
@@ -3415,7 +3712,7 @@ is &lt; 0.5.</p></li>
     <span class="c1"># First subplot: Probability of reporting "seen" for w_1 or w_2</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_prob_y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'SOA (precision)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Stimulus strength'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Prob. report "seen" for w_1 or w_2'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -3426,7 +3723,7 @@ is &lt; 0.5.</p></li>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_w_yes</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_w_yes</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Seen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_w_no</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_w_no</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Unseen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'SOA (precision)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Stimulus strength'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'K-L divergence, perceptual states'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -3437,7 +3734,7 @@ is &lt; 0.5.</p></li>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_A_yes</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_A_yes</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Seen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_A_no</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_A_no</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Unseen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'SOA (precision)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Stimulus strength'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'K-L divergence, awareness state'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -3522,7 +3819,7 @@ is &lt; 0.5.</p></li>
     <span class="c1"># First subplot: Probability of reporting "seen" for w_1 or w_2</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_prob_y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'SOA (precision)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Stimulus strength'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Prob. report "seen" for w_1 or w_2'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -3533,7 +3830,7 @@ is &lt; 0.5.</p></li>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_w_yes</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_w_yes</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Seen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_w_no</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_w_no</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Unseen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'SOA (precision)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Stimulus strength'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'K-L divergence, perceptual states'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -3544,7 +3841,7 @@ is &lt; 0.5.</p></li>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_A_yes</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_A_yes</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Seen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">all_KL_A_no</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sem_KL_A_no</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Unseen'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'SOA (precision)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Stimulus strength'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'K-L divergence, awareness state'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -3624,7 +3921,7 @@ is &lt; 0.5.</p></li>
 <section id="understanding-the-process">
 <h3>Understanding the process<a class="headerlink" href="#understanding-the-process" title="Permalink to this heading">#</a></h3>
 <p>The goal is to gain a thorough comprehension of the network’s architecture and to interpret the pre-training results visually. This will provide a clearer picture of the model’s potential and limitations.</p>
-<p>The network is designed as a backpropagation autoassociator. It features a 100-unit input layer, directly linked to a 60-unit hidden layer, which in turn connects to a 100-unit output layer. Initial connection weights are set within the range of -1.0 to 1.0 for the first-order network. To mitigate overfitting, dropout is employed within the network architecture. The architecture includes a configurable activation function. This flexibility allows for adjustments and tuning in Activity 3, aiming for optimal model performance.</p>
+<p>The network is designed as a backpropagation autoassociator. It features a 100-unit input layer, directly linked to a 180-unit hidden layer, which in turn connects to a 100-unit output layer. Initial connection weights are set within the range of -1.0 to 1.0 for the first-order network. To mitigate overfitting, dropout is employed within the network architecture. The architecture includes a configurable activation function. This flexibility allows for adjustments and tuning in Activity 3, aiming for optimal model performance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FirstOrderNetwork</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -3643,17 +3940,12 @@ is &lt; 0.5.</p></li>
 
         <span class="c1"># Define the encoder, hidden, and decoder layers with specified units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">hidden_units</span><span class="p">)</span>
-
-
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="n">hidden_units</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="n">hidden_units</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_units</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
         <span class="c1"># Dropout layer to prevent overfitting</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-
-        <span class="c1"># Temperature parameter for activation sharpness control</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="mf">1.0</span>
 
         <span class="c1"># Set the data factor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_factor</span> <span class="o">=</span> <span class="n">data_factor</span>
@@ -3673,7 +3965,7 @@ is &lt; 0.5.</p></li>
 <span class="w">        </span><span class="sd">"""Initializes weights of the encoder, hidden, and decoder layers uniformly."""</span>
         <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
         <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
@@ -3686,11 +3978,14 @@ is &lt; 0.5.</p></li>
 <span class="sd">        - Tensor: The output of the network after passing through the layers and activations.</span>
 <span class="sd">        """</span>
         <span class="c1"># Encoder step with dropout and sigmoid activation</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="c1"># Decoder step with LSTM and output layer</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
+        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">x</span>
 </pre></div>
@@ -3701,10 +3996,12 @@ is &lt; 0.5.</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the architecture, optimizers, loss functions, and schedulers for pre training</span>
-<span class="n">hidden</span><span class="o">=</span><span class="mi">60</span>
+<span class="c1"># Hyperparameters</span>
+<span class="n">hidden</span><span class="o">=</span><span class="mi">180</span>
 <span class="n">factor</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">gelu</span><span class="o">=</span><span class="kc">False</span>
-<span class="n">gam</span><span class="o">=</span><span class="mf">0.99</span>
+<span class="n">gam</span><span class="o">=</span><span class="mf">0.98</span>
+<span class="n">meta</span><span class="o">=</span><span class="kc">True</span>
 <span class="n">stepsize</span><span class="o">=</span><span class="mi">50</span>
 
 <span class="n">initialize_global</span><span class="p">()</span>
@@ -3717,10 +4014,15 @@ is &lt; 0.5.</p></li>
 <span class="n">criterion_1</span> <span class="o">=</span> <span class="n">logcosh</span>
 
 <span class="c1"># Optimizer</span>
-<span class="n">optimizer_1</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">first_order_network</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate_1</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">momentum</span><span class="p">)</span>
+<span class="n">optimizer_1</span> <span class="o">=</span> <span class="n">optim2</span><span class="o">.</span><span class="n">SWATS</span><span class="p">(</span><span class="n">first_order_network</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate_1</span><span class="p">)</span>
 
 <span class="c1"># Learning rate schedulers</span>
 <span class="n">scheduler_1</span> <span class="o">=</span> <span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer_1</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">stepsize</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gam</span><span class="p">)</span>
+
+<span class="n">max_values_output_first_order</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_indices_output_first_order</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_values_patterns_tensor</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_indices_patterns_tensor</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Training loop</span>
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
@@ -3752,8 +4054,31 @@ is &lt; 0.5.</p></li>
 
     <span class="n">epoch_1_order</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">loss_1</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
+    <span class="c1">############################################</span>
+
+    <span class="c1"># Get max values and indices for output_first_order</span>
+    <span class="n">max_vals_out</span><span class="p">,</span> <span class="n">max_inds_out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">output_first_order</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">max_inds_out</span><span class="p">[</span><span class="n">max_vals_out</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">max_values_output_first_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_vals_out</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">max_indices_output_first_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_inds_out</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+    <span class="c1"># Get max values and indices for patterns_tensor</span>
+    <span class="n">max_vals_pat</span><span class="p">,</span> <span class="n">max_inds_pat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">patterns_tensor</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">max_inds_pat</span><span class="p">[</span><span class="n">max_vals_pat</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">max_values_patterns_tensor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_vals_pat</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">max_indices_patterns_tensor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_inds_pat</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+    <span class="c1">############################################</span>
+
+
+<span class="n">max_values_indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_values_output_first_order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">max_indices_output_first_order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">max_values_patterns_tensor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">max_indices_patterns_tensor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+
 <span class="c1"># Plot training loss curve</span>
-<span class="n">pre_train_plots</span><span class="p">(</span><span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="s2">"First order network training"</span><span class="p">)</span>
+<span class="n">pre_train_plots</span><span class="p">(</span><span class="n">epoch_1_order</span><span class="p">,</span> <span class="n">epoch_2_order</span><span class="p">,</span> <span class="s2">"First order network training"</span> <span class="p">,</span> <span class="n">max_values_indices</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4141,6 +4466,16 @@ How could you design a test to be a true forward test?
     </a>
 </li>
 <li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-1">
+     Video 1: Guillaume 1
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-2">
+     Video 1: Guillaume 2
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
 <a class="reference internal nav-link" href="#section-1a-modularity-of-the-mind">
      Section 1a: Modularity Of The Mind
     </a>
@@ -4181,6 +4516,13 @@ How could you design a test to be a true forward test?
 <a class="reference internal nav-link" href="#rims-and-consciousness">
        RIMs and consciousness
       </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-3">
+         Video 1: Guillaume 3
+        </a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -4200,6 +4542,13 @@ How could you design a test to be a true forward test?
 <a class="reference internal nav-link" href="#recap">
      Recap
     </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-4">
+       Video 1: Guillaume 4
+      </a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -4222,6 +4571,13 @@ How could you design a test to be a true forward test?
 <a class="reference internal nav-link" href="#id6">
        Discussion point
       </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-guillaume-5">
+         Video 1: Guillaume 5
+        </a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
