@@ -1,29 +1,11 @@
 # General schedule
 
 ## Course overview
-
-* Sun, July 7: Opening Ceremonies
-    * 8:30 am UTC
-    * 5:30 pm UTC
-    
-* Week 1
-    * Mon, July 15: 
-    * Tue, July 16: 
-    * Wed, July 17: 
-    * Thu, July 18: 
-    * Fri, July 19: 
-     
-* Week 2
-    * Mon, July 22: 
-    * Tue, July 23: 
-    * Wed, July 24: 
-    * Thu, July 25: 
-    * Fri, July 26: & Graduation 
-    
+### 2025 Course Dates: July 14 - 25 
 ----
 
 ## Daily coursework schedule
-These schedules refer to the coursework time.
+### 2025 course schedule updates coming soon! Below is the 2024 course schedule. 
 
 ### General schedule
 All days except W1D4 and W2D5 will follow this schedule for course time:
@@ -171,7 +153,7 @@ Closing Ceremony/Graduation: We will do this all together on crowdcast.
 |    4:25-4:45      |    Break                                 |
 |    4:45-5:15\**   |    Course Review & Feedback              |
 |    5:15-5:30\**   |    Pod farewell                         |
-|    5:30-6:15\**   |    Closing Ceremony/Graduation           |
+|    6:30-7:15\**   |    Closing Ceremony/Graduation           |
 
 \* : This is the last hour and a quarter of projects time for slot 3
 
