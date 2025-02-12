@@ -240,6 +240,13 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/continuing_your_project_after_the_course.html">
+                        Continuing your project after the course
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../docs/datasets_overview.html">
                         Project materials
@@ -432,6 +439,13 @@ const thebe_selector_output = ".output, .cell_output"
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../docs/project_guidance.html">
                         Daily guide for projects
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../docs/continuing_your_project_after_the_course.html">
+                        Continuing your project after the course
                       </a>
                     </li>
                 
@@ -823,6 +837,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docs/project_guidance.html">Daily guide for projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/continuing_your_project_after_the_course.html">Continuing your project after the course</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../docs/datasets_overview.html">Project materials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Macrocircuits.html">Macrocircuits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Microlearning.html">Microlearning</a></li>
@@ -1182,8 +1197,8 @@ title="Print to PDF"
 
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>vibecheck<span class="w"> </span>datatops<span class="w"> </span>--quiet
 
-<span class="kn">from</span> <span class="nn">vibecheck</span> <span class="kn">import</span> <span class="n">DatatopsContentReviewContainer</span>
-<span class="k">def</span> <span class="nf">content_review</span><span class="p">(</span><span class="n">notebook_section</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vibecheck</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatatopsContentReviewContainer</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">content_review</span><span class="p">(</span><span class="n">notebook_section</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">DatatopsContentReviewContainer</span><span class="p">(</span>
         <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># No text prompt</span>
         <span class="n">notebook_section</span><span class="p">,</span>
@@ -1205,7 +1220,7 @@ title="Print to PDF"
 <h3>Project Background<a class="headerlink" href="#project-background" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "824e14e09f3e4ca19d69262341488b7f"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0bc9b7ae80b442a78ce319662aa4532f"}</script></div>
 </div>
 </section>
 <section id="submit-your-feedback">
@@ -1224,7 +1239,7 @@ title="Print to PDF"
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9b61cca5b14f42b6a1ee0fd7f89412ce"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1b3692d1df22429d953083b8a61d7ed7"}</script></div>
 </div>
 </section>
 <section id="project-slides">
@@ -1256,9 +1271,9 @@ title="Print to PDF"
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Project Template</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/neuromatch/NeuroAI_Course/blob/main/projects/project-notebooks/static/ComputationalSimilarityTemplate.png?raw=true&quot;</span>
 
@@ -1287,7 +1302,7 @@ title="Print to PDF"
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "54407ede2417410aa647513a3c8a467a"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b697458e22394ccb91128bcde0132d1b"}</script></div>
 </div>
 <p>In this notebook, we are going to provide code to get you started on Q1-Q3 of this project!</p>
 <p>The basic outline looks like this:</p>
@@ -1433,9 +1448,9 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Local installation</span>
 
-<span class="kn">import</span> <span class="nn">contextlib</span>
-<span class="kn">import</span> <span class="nn">io</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">dirname</span> <span class="o">=</span> <span class="s2">&quot;ComputationThruDynamicsBenchmark&quot;</span>
 
@@ -1478,7 +1493,7 @@ title="Print to PDF"
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "dd9fefa9b8be4bcc89b5d19759206302"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "709f2f186e6b4bb0877f8d615c51f701"}</script></div>
 </div>
 </section>
 </section>
@@ -1490,11 +1505,11 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the random seed for reproducibility</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">dotenv</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dotenv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 <span class="c1"># comment the next three lines if you want to see all training logs</span>
 <span class="n">pl_loggers</span> <span class="o">=</span> <span class="p">[</span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">logging</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">loggerDict</span> <span class="k">if</span> <span class="s1">&#39;pytorch_lightning&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
@@ -1545,7 +1560,7 @@ title="Print to PDF"
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e7d566a355354200b296e68051f32e5d"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "fd9e40793ca14af18baccee0da046fd1"}</script></div>
 </div>
 </section>
 </section>
@@ -1559,7 +1574,7 @@ title="Print to PDF"
 <p>❓❓❓</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.task_env.task_env</span> <span class="kn">import</span> <span class="n">NBitFlipFlop</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.task_env.task_env</span><span class="w"> </span><span class="kn">import</span> <span class="n">NBitFlipFlop</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># The number of bits in the flip-flop (default: 3)</span>
 <span class="n">trial_length</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># The number of time steps in each trial (default: 500)</span>
@@ -1580,7 +1595,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f022b052d2ca0af07139e84db1bee73be48616693e05413dffe7bca1255093b7.png" src="../../_images/f022b052d2ca0af07139e84db1bee73be48616693e05413dffe7bca1255093b7.png" />
+<img alt="../../_images/b28232f8bfe98c2335bab8a743dfbac16ab6354ecde10c487ba1eb40a772fa04.png" src="../../_images/b28232f8bfe98c2335bab8a743dfbac16ab6354ecde10c487ba1eb40a772fa04.png" />
 </div>
 </div>
 <p>Above, we are plotting the inputs and outputs of the 3BFF task. One trial is 500 time steps, each with a 1% probability of getting an “up” or “down” pulse on each of its 3 input channels. When the task receives an “up” pulse, the state corresponding to that input channel moves from zero to one (if possible), and if a state at one receives a “down” pulse, it goes to zero. In this way, this system acts as 3 bits of memory, encoding 8 potential system states (2^3 states). We add noise to the inputs of the system so that it better reflects realistic computations that a neural circuit might perform.</p>
@@ -1593,7 +1608,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12a249e302befef00cdd080d06db1c3194ff2bc0a83d23d80e7dbba873737afb.png" src="../../_images/12a249e302befef00cdd080d06db1c3194ff2bc0a83d23d80e7dbba873737afb.png" />
+<img alt="../../_images/fd0297059a5db5141f9d616bb6c97d1c237e5f6916a68e7a7ded56a918971a13.png" src="../../_images/fd0297059a5db5141f9d616bb6c97d1c237e5f6916a68e7a7ded56a918971a13.png" />
 </div>
 </div>
 <p>Now that we can see the basic logic of the task, let’s do a basic overview of what task training is!</p>
@@ -1617,7 +1632,7 @@ title="Print to PDF"
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "463660b941a249d193ecf171ace18430"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c14cf26ecd8a4c6e9c7aa58820497812"}</script></div>
 </div>
 </section>
 </section>
@@ -1630,10 +1645,10 @@ title="Print to PDF"
 <p>Unfortunately, it generates a lot of output, so if you don’t care to see the model progress, set <code class="docutils literal notranslate"><span class="pre">enable_progress_bar</span></code> to False below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.model.rnn</span> <span class="kn">import</span> <span class="n">GRU_RNN</span>
-<span class="kn">from</span> <span class="nn">ctd.task_modeling.datamodule.task_datamodule</span> <span class="kn">import</span> <span class="n">TaskDataModule</span>
-<span class="kn">from</span> <span class="nn">ctd.task_modeling.task_wrapper.task_wrapper</span> <span class="kn">import</span> <span class="n">TaskTrainedWrapper</span>
-<span class="kn">from</span> <span class="nn">pytorch_lightning</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.model.rnn</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRU_RNN</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.datamodule.task_datamodule</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaskDataModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.task_wrapper.task_wrapper</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaskTrainedWrapper</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pytorch_lightning</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trainer</span>
 
 <span class="n">enable_progress_bar</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -1676,7 +1691,7 @@ title="Print to PDF"
 <p>❓❓❓</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
 <span class="c1"># save model as .pkl</span>
 <span class="n">save_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">HOME_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;models_GRU_128&quot;</span>
 <span class="n">save_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1696,7 +1711,7 @@ title="Print to PDF"
 <p>⏳⏳⏳</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.model.node</span> <span class="kn">import</span> <span class="n">NODE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.model.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">NODE</span>
 <span class="n">enable_progress_bar</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">rnn</span> <span class="o">=</span> <span class="n">NODE</span><span class="p">(</span><span class="n">latent_size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num_layers</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">layer_hidden_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span> <span class="c1"># Look in ctd/task_modeling/models for alternative choices!</span>
 <span class="n">task_wrapper</span> <span class="o">=</span> <span class="n">TaskTrainedWrapper</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
@@ -1763,7 +1778,7 @@ title="Print to PDF"
 <h3>Part 1: Visualizing latent activity<a class="headerlink" href="#part-1-visualizing-latent-activity" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.comparison.analysis.tt.tt</span> <span class="kn">import</span> <span class="n">Analysis_TT</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ctd.comparison.analysis.tt.tt</span><span class="w"> </span><span class="kn">import</span> <span class="n">Analysis_TT</span>
 
 <span class="n">fpath_GRU_128</span> <span class="o">=</span> <span class="n">HOME_DIR</span> <span class="o">+</span> <span class="s2">&quot;models_GRU_128/&quot;</span>
 <span class="c1"># Create the analysis object:</span>
@@ -1880,9 +1895,9 @@ These functions are:</p>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">analysis_GRU_128</span>
 <span class="n">target</span> <span class="o">=</span> <span class="n">analysis_NODE</span>
@@ -1950,7 +1965,7 @@ Variance-weighted R2 of linear regression fit: 0.7076211324642876
 <p>This function has the affine transformation “built-in,” so you don’t need this to show what your R2 value above looks like in the first 3 PCs!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.comparison.comparison</span> <span class="kn">import</span> <span class="n">Comparison</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ctd.comparison.comparison</span><span class="w"> </span><span class="kn">import</span> <span class="n">Comparison</span>
 <span class="n">comp</span> <span class="o">=</span> <span class="n">Comparison</span><span class="p">()</span>
 <span class="n">comp</span><span class="o">.</span><span class="n">load_analysis</span><span class="p">(</span><span class="n">analysis_GRU_128</span><span class="p">,</span> <span class="n">reference_analysis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">comp</span><span class="o">.</span><span class="n">load_analysis</span><span class="p">(</span><span class="n">analysis_NODE</span><span class="p">)</span>
@@ -2002,9 +2017,9 @@ Variance-weighted R2 of linear regression fit: 0.7076211324642876
 <p>Importantly from <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2022.08.15.503870v1.full.pdf">Driscol et al. 2022</a>, we know that changes in the inputs can have large effects on the fixed point architecture, so we’re going to set the inputs to zero in this optimization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">contextlib</span>
-<span class="kn">import</span> <span class="nn">io</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()):</span> <span class="c1">#to suppress output</span>
     <span class="n">fps</span> <span class="o">=</span> <span class="n">analysis_GRU_128</span><span class="o">.</span><span class="n">plot_fps</span><span class="p">(</span>
@@ -2027,7 +2042,7 @@ Variance-weighted R2 of linear regression fit: 0.7076211324642876
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">q_thesh</span> <span class="o">=</span> <span class="mf">1e-6</span>
 <span class="n">q_vals</span> <span class="o">=</span> <span class="n">fps</span><span class="o">.</span><span class="n">qstar</span>
 <span class="n">x_star</span> <span class="o">=</span> <span class="n">fps</span><span class="o">.</span><span class="n">xstar</span><span class="p">[</span><span class="n">q_vals</span> <span class="o">&lt;</span> <span class="n">q_thesh</span><span class="p">]</span>
@@ -2094,9 +2109,9 @@ Variance-weighted R2 of linear regression fit: 0.7076211324642876
 <p>with each loss term being weighted by a scalar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.task_env.task_env</span> <span class="kn">import</span> <span class="n">RandomTarget</span>
-<span class="kn">from</span> <span class="nn">motornet.effector</span> <span class="kn">import</span> <span class="n">RigidTendonArm26</span>
-<span class="kn">from</span> <span class="nn">motornet.muscle</span> <span class="kn">import</span> <span class="n">MujocoHillMuscle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.task_env.task_env</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomTarget</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">motornet.effector</span><span class="w"> </span><span class="kn">import</span> <span class="n">RigidTendonArm26</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">motornet.muscle</span><span class="w"> </span><span class="kn">import</span> <span class="n">MujocoHillMuscle</span>
 <span class="c1"># Create the analysis object:</span>
 <span class="n">rt_task_env</span> <span class="o">=</span> <span class="n">RandomTarget</span><span class="p">(</span><span class="n">effector</span> <span class="o">=</span> <span class="n">RigidTendonArm26</span><span class="p">(</span><span class="n">muscle</span> <span class="o">=</span> <span class="n">MujocoHillMuscle</span><span class="p">()))</span>
 </pre></div>
@@ -2108,10 +2123,10 @@ Variance-weighted R2 of linear regression fit: 0.7076211324642876
 <p>⏳⏳⏳</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctd.task_modeling.model.rnn</span> <span class="kn">import</span> <span class="n">GRU_RNN</span>
-<span class="kn">from</span> <span class="nn">ctd.task_modeling.datamodule.task_datamodule</span> <span class="kn">import</span> <span class="n">TaskDataModule</span>
-<span class="kn">from</span> <span class="nn">ctd.task_modeling.task_wrapper.task_wrapper</span> <span class="kn">import</span> <span class="n">TaskTrainedWrapper</span>
-<span class="kn">from</span> <span class="nn">pytorch_lightning</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.model.rnn</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRU_RNN</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.datamodule.task_datamodule</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaskDataModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ctd.task_modeling.task_wrapper.task_wrapper</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaskTrainedWrapper</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pytorch_lightning</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trainer</span>
 
 <span class="c1"># Step 1: Instantiate the model</span>
 <span class="n">rnn</span> <span class="o">=</span> <span class="n">GRU_RNN</span><span class="p">(</span><span class="n">latent_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span> <span class="c1"># Look in ctd/task_modeling/models for alternative choices!</span>
