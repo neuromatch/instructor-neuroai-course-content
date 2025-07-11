@@ -90,7 +90,7 @@ jobs:
         uses: tlylt/install-graphviz@v1
       
       - name: Cache Jupyter Build Artifacts
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ./book/_build/html/
